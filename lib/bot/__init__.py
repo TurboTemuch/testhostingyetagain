@@ -1,6 +1,7 @@
 from asyncio import sleep
 from datetime import datetime
 from glob import glob
+from pathlib import Path
 
 from discord import Intents
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
@@ -13,7 +14,7 @@ from ..db import db
 
 PREFIX = ">"
 OWNER_IDS = [514069435913469962]
-COGS = [path.split("\\")[-1][:-3] for path in glob("./lib/cogs/*.py")]
+COGS = [p.stem for p in Path(".").glob("./lib/cogs/*.py")]
 
 
 class Ready(object):
