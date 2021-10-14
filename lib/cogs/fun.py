@@ -16,7 +16,7 @@ class Fun(Cog):
 
     @command(name="slap", aliases=["hit","ударить"])
     async def slap_member(self, ctx, member:Member, *, reason: Optional[str] = "no reason"):
-        await ctx.send(f"{ctx.author.name} slapped {member.mention} for {reason}!")
+        await ctx.send(f"{ctx.author.name} ударил {member.mention} по причине: {reason}!")
 
     @Cog.listener()
     async def on_ready(self):
