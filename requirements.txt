@@ -1,7 +1,5 @@
 asyncio
 datetime
-glob
 discord.py
 discord.ext
-typing
 discord
