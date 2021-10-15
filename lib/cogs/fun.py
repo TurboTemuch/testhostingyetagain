@@ -38,8 +38,8 @@ class Fun(Cog):
         fields = [("Бот TurboTemuch успешно запущен!", "Bot created and coded by TurboTemuch#7375", True)]
         for name, value, inline in fields:
             embed.add_field(name=name, value=value, inline=inline)
-            embed.set_author(name="Bot TurboTemuch1")
-            embed.set_footer(text="Запущен в работу")
+            embed.set_author(name="Bot TurboTemuch1 ver 1.0.3")
+            embed.set_footer(text="Branch deployed & dyno connected")
         await channel.send(embed=embed)
 
     @Cog.listener()
