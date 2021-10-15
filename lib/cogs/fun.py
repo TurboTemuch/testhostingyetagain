@@ -22,11 +22,11 @@ class Fun(Cog):
     async def slap_member(self, ctx, member:Member, *, reason: Optional[str] = "no reason"):
         await ctx.send(f"{ctx.author.name} ударил {member.mention} по причине: {reason}!")
       
-    @command(name="help", aliases=["помощь","Помощь","хелп"])
+    @command(name="хелп", aliases=["помощь","Помощь"])
     async def help(self, channel):
         embed = Embed(title="Команды:", colour=0x00FF00,
                           timestamp=datetime.utcnow())
-        fields = [("Префикс: `>`","Модуль fun:", "Связь (Бот, связь, бот) - проверка связи с ботом", "slap (hit, ударить) `>slap @участник причина`", "Помощь (хелп, help, помощь) - список команд", "info (инфо) - информация о боте", True)]
+        fields = [("Префикс: `>`","Модуль fun:", "Связь (Бот, связь, бот) - проверка связи с ботом", "slap (hit, ударить) `>slap @участник причина`", "хелп (Помощь, помощь) - список команд", "info (инфо) - информация о боте", True)]
         for name, value, inline in fields:
             embed.add_field(name=name, value=value, inline=inline)
         await channel.send(embed=embed)
