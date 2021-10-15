@@ -45,17 +45,17 @@ class Fun(Cog):
         
     @command(name="update")
     async def update(self, ctx):
-        if ctx.message.author.id =='514069435913469962':
+        if ctx.message.author.id ==514069435913469962:
             await ctx.bot.change_presence(status=discord.Status.idle, activity=discord.Game("UPDATE"))
         else:
-            await ctx.send("У вас нет доступа к этой команде.")
+            await ctx.send("```- У вас нет доступа к этой команде -```")
                 
     @command(name="stable")
     async def stable(self, ctx):
-        if ctx.message.author.id =='514069435913469962':
+        if ctx.message.author.id ==514069435913469962:
             await ctx.bot.change_presence(status=discord.Status.online, activity=discord.Game(f"{ctx.bot.VERSION}"))
         else:
-            await ctx.send("```diff/n- У вас нет доступа к этой команде -/n```")
+            await ctx.send("```- У вас нет доступа к этой команде -```")
 
     @Cog.listener()
     async def on_ready(self):
