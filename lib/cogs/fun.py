@@ -46,14 +46,14 @@ class Fun(Cog):
     @command(name="update")
     async def update(self, ctx):
         if ctx.message.author.id ==514069435913469962:
-            await ctx.bot.change_presence(status=discord.Status.idle, activity=discord.Game("UPDATE"))
+            await ctx.bot.change_presence(status=discord.Status.idle, activity=discord.Game("ОБНОВЛЕНИЕ"))
         else:
             await ctx.send("```- У вас нет доступа к этой команде -```")
                 
     @command(name="stable")
     async def stable(self, ctx):
         if ctx.message.author.id ==514069435913469962:
-            await ctx.bot.change_presence(status=discord.Status.online, activity=discord.Game(f"{ctx.bot.VERSION}"))
+            await bot.change_presence(status=discord.Status.online, activity=discord.Game(f">хелп (version {ctx.bot.VERSION})"))
         else:
             await ctx.send("```- У вас нет доступа к этой команде -```")
 
