@@ -1,3 +1,6 @@
+import discord
+
+from ..bot import vers
 from os import name
 from random import choice
 from typing import Optional
@@ -46,7 +49,14 @@ class Fun(Cog):
         if ctx.message.author.id =='514069435913469962':
             await ctx.bot.change_presence(status=discord.Status.idle, activity=discord.Game("UPDATE"))
         else:
-             await ctx.send("У вас нет доступа к этой команде.")
+            await ctx.send("У вас нет доступа к этой команде.")
+                
+    @command(name="stable")
+    async def stable(ctx):
+        if ctx.message.author.id =='514069435913469962':
+            await ctx.bot.change_presence(status=discord.Status.online, activity=discord.Game(f"{vers}"))
+        else:
+            await ctx.send("У вас нет доступа к этой команде.")
 
     @Cog.listener()
     async def on_ready(self):
