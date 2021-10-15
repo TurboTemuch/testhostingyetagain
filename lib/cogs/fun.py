@@ -9,7 +9,7 @@ from discord import Embed, File
 from discord.ext.commands import Cog
 from discord.ext.commands import command
 
-from launcher import VERSION
+from main import VERSION
 
 class Fun(Cog):
     def __init__(self, bot):
