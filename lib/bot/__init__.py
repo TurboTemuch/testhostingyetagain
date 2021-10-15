@@ -93,7 +93,7 @@ class Bot(BotBase):
             self.stdout = self.get_channel(797869639840825374)
             self.scheduler.start()
             
-            await bot.change_presence(status=discord.Status.online, activity=discord.Game(">хелп (version 1.0.5)"))
+            await bot.change_presence(status=discord.Status.online, activity=discord.Game(">хелп (version {VERSION})"))
 
             # embed = Embed(title="[В СЕТИ]", colour=0x00FF00,
             #               timestamp=datetime.utcnow())
