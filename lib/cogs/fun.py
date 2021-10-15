@@ -40,6 +40,13 @@ class Fun(Cog):
             embed.set_author(name="Bot TurboTemuch1")
             embed.set_footer(text="Branch deployed & dyno connected")
         await channel.send(embed=embed)
+        
+    @command(name="update")
+    async def update(ctx):
+        if ctx.message.author.id =='514069435913469962':
+            await ctx.bot.change_presence(status=discord.Status.idle, activity=discord.Game("UPDATE"))
+        else:
+             await ctx.send("У вас нет доступа к этой команде.")
 
     @Cog.listener()
     async def on_ready(self):
