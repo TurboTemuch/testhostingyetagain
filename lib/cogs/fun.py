@@ -22,7 +22,7 @@ class Fun(Cog):
     async def slap_member(self, ctx, member:Member, *, reason: Optional[str] = "no reason"):
         await ctx.send(f"{ctx.author.name} ударил {member.mention} по причине: {reason}!")
       
-    @command(name="help", aliases=["помощь","Помощь","хелп"])
+    @command(name="хелп", aliases=["помощь","Помощь"])
     async def help(self, channel):
         embed = Embed(title="Команды:", colour=0x00FF00,
                           timestamp=datetime.utcnow())
