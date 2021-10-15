@@ -26,7 +26,7 @@ class Fun(Cog):
     async def help(self, channel):
         embed = Embed(title="Команды:", colour=0x00FF00,
                           timestamp=datetime.utcnow())
-        fields = [("Префикс: `>`","Модуль fun:", "Связь (Бот, связь, бот) - проверка связи с ботом", "slap (hit, ударить) `>slap @участник причина`", "хелп (Помощь, помощь) - список команд", "info (инфо) - информация о боте", True)]
+        fields = [("Префикс: `>`","Модуль fun: \nСвязь (Бот, связь, бот) - проверка связи с ботом \nslap (hit, ударить) `>slap @участник причина` \nхелп (Помощь, помощь) - список команд \ninfo (инфо) - информация о боте", True)]
         for name, value, inline in fields:
             embed.add_field(name=name, value=value, inline=inline)
         await channel.send(embed=embed)
