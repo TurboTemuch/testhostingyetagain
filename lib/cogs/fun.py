@@ -53,7 +53,7 @@ class Fun(Cog):
     @command(name="stable")
     async def stable(self, ctx):
         if ctx.message.author.id ==514069435913469962:
-            await bot.change_presence(status=discord.Status.online, activity=discord.Game(f">хелп (version {ctx.bot.VERSION})"))
+            await ctx.bot.change_presence(status=discord.Status.online, activity=discord.Game(f">хелп (version {ctx.bot.VERSION})"))
         else:
             await ctx.send("```- У вас нет доступа к этой команде -```")
 
