@@ -9,7 +9,6 @@ from discord import Embed, File
 from discord.ext.commands import Cog
 from discord.ext.commands import command
 
-
 class Fun(Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -38,7 +37,7 @@ class Fun(Cog):
         fields = [("Бот TurboTemuch успешно запущен!", "Bot created and coded by TurboTemuch#7375", True)]
         for name, value, inline in fields:
             embed.add_field(name=name, value=value, inline=inline)
-            embed.set_author(name="Bot TurboTemuch1 ver 1.0.3")
+            embed.set_author(name="Bot TurboTemuch1 ver {VERSION}")
             embed.set_footer(text="Branch deployed & dyno connected")
         await channel.send(embed=embed)
 
