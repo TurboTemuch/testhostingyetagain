@@ -1,3 +1,5 @@
+import discord
+
 from asyncio import sleep
 from datetime import datetime
 from glob import glob
@@ -90,6 +92,8 @@ class Bot(BotBase):
             self.guild = self.get_guild(794586989122945053)
             self.stdout = self.get_channel(797869639840825374)
             self.scheduler.start()
+            
+            await bot.change_presence(status=discord.Status.online, activity=discord.Game("heroku app"))
 
             # embed = Embed(title="[В СЕТИ]", colour=0x00FF00,
             #               timestamp=datetime.utcnow())
