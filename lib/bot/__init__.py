@@ -14,7 +14,6 @@ from discord.ext.commands import CommandNotFound
 
 from ..db import db
 
-vers = "1.0.7" 
 PREFIX = ">"
 OWNER_IDS = [514069435913469962]
 COGS = [p.stem for p in Path(".").glob("./lib/cogs/*.py")]
@@ -88,7 +87,8 @@ class Bot(BotBase):
         else:
             raise exc
 
-    async def on_ready(self):
+    async def on_ready(self, vers):
+        self.VERSION = vers
         if not self.ready:
             self.guild = self.get_guild(794586989122945053)
             self.stdout = self.get_channel(797869639840825374)
