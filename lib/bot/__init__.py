@@ -13,8 +13,8 @@ from discord.ext.commands import Bot as BotBase
 from discord.ext.commands import CommandNotFound
 
 from ..db import db
-from main import VERSION
 
+vers = "1.0.7" 
 PREFIX = ">"
 OWNER_IDS = [514069435913469962]
 COGS = [p.stem for p in Path(".").glob("./lib/cogs/*.py")]
@@ -94,7 +94,7 @@ class Bot(BotBase):
             self.stdout = self.get_channel(797869639840825374)
             self.scheduler.start()
             
-            await bot.change_presence(status=discord.Status.online, activity=discord.Game(f">хелп (version {VERSION})"))
+            await bot.change_presence(status=discord.Status.online, activity=discord.Game(f">хелп (version {vers})"))
 
             # embed = Embed(title="[В СЕТИ]", colour=0x00FF00,
             #               timestamp=datetime.utcnow())
