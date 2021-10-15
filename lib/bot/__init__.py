@@ -13,7 +13,7 @@ from discord.ext.commands import Bot as BotBase
 from discord.ext.commands import CommandNotFound
 
 from ..db import db
-from launcher import VERSION
+from main import VERSION
 
 PREFIX = ">"
 OWNER_IDS = [514069435913469962]
