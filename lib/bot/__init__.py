@@ -87,14 +87,13 @@ class Bot(BotBase):
         else:
             raise exc
 
-    async def on_ready(self, vers):
-        self.VERSION = vers
+    async def on_ready(self):
         if not self.ready:
             self.guild = self.get_guild(794586989122945053)
             self.stdout = self.get_channel(797869639840825374)
             self.scheduler.start()
             
-            await bot.change_presence(status=discord.Status.online, activity=discord.Game(f">хелп (version {vers})"))
+            await bot.change_presence(status=discord.Status.online, activity=discord.Game(f">хелп (version {self.VERSION})"))
 
             # embed = Embed(title="[В СЕТИ]", colour=0x00FF00,
             #               timestamp=datetime.utcnow())
