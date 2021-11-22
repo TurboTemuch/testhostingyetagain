@@ -20,8 +20,8 @@ class Fun(Cog):
         await ctx.send(f"{choice((':white_check_mark:', 'Всё работает!', ':eyes:', '5 минут, полёт нормальный!', 'Я жив!', 'На месте!', 'Спасибо <@514069435913469962>, что я работаю!'))}")
 
     @command(name="slap", aliases=["hit","ударить"])
-    async def slap_member(self, ctx, member:Member, *, reason: Optional[str] = "no reason"):
-        await ctx.send(f"{ctx.author.name} ударил {member.mention} по причине: {reason}!")
+    async def slap_member(self, ctx, member:Member, *, reason: Optional[str] = "просто так"):
+        await ctx.send(f"{ctx.author.name} ударил {member.mention} по причине: {reason}.")
       
     @command(name="хелп", aliases=["помощь","Помощь"])
     async def help(self, channel):
