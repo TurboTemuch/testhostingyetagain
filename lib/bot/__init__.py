@@ -71,15 +71,15 @@ class Bot(BotBase):
 
     async def on_error(self, err, *args, **kwargs):
         if err == "on_command_error":
-            await args[0].send("[ERROR] Что-то пошло не так.")
+            await args[0].send("Блять чё за пиздец")
 
-        await self.stdout.send("[ERROR] Произошла ошибка!")
+        await self.stdout.send("Произошла ебейшая хуйня")
         raise
 
     async def on_command_error(self, ctx, exc):
         if isinstance(exc, CommandNotFound):
             # pass
-            await ctx.send("[ERROR] Команда не найдена!")
+            await ctx.send("Такой команды нет долбоёб")
 
         elif hasattr(exc, "original"):
             raise exc.original
