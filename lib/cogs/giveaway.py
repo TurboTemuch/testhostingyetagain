@@ -30,7 +30,7 @@ class Giveaway(Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name="giveaway", aliases=["раздача","gw"])
+    @commands.command(name="giveaway", aliases=["раздача","gw","конкурс","giveaway","к"])
     @has_permissions(kick_members=True, administrator=True)
     async def giveaway(self, ctx):
       await ctx.send("Ответьте на каждый вопрос за 15 секунд")
