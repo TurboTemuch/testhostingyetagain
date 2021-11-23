@@ -73,7 +73,7 @@ class Bot(BotBase):
         if err == "on_command_error":
             await args[0].send("Блять даун пиши правильно команду или иди нахуй осёл")
 
-        await self.stdout.send("Произошла ебейшая хуйня")
+        await self.stdout.send("@TurboTemuch Произошла ебейшая хуйня")
         raise
 
     async def on_command_error(self, ctx, exc):
