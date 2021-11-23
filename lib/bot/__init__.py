@@ -80,7 +80,7 @@ class Bot(BotBase):
     async def on_command_error(self, ctx, exc):
         if isinstance(exc, CommandNotFound):
             # pass
-            await ctx.send(f{choice(('Такой команды нет долбоёб', 'Ебать это чё за поеботина', 'Если ты такой тупой команд не знаешь пиши >help', 'Ты заебал'))})
+            await ctx.send(f"{choice(('Такой команды нет долбоёб', 'Ебать это чё за поеботина', 'Если ты такой тупой команд не знаешь пиши >help', 'Ты заебал'))}")
 
         elif hasattr(exc, "original"):
             raise exc.original
