@@ -4,6 +4,7 @@ from asyncio import sleep
 from datetime import datetime
 from glob import glob
 from pathlib import Path
+from random import choice
 
 from discord import Intents
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
@@ -71,7 +72,7 @@ class Bot(BotBase):
 
     async def on_error(self, err, *args, **kwargs):
         if err == "on_command_error":
-            await args[0].send("Блять даун пиши правильно команду или иди нахуй осёл")
+            await args[0].send(f"{choice(('Блять даун пиши правильно команду или иди нахуй осёл', 'Чё за хуйня с командой', 'Заебал писать хуйню научись командой пользоваться'))})
 
         await self.stdout.send("<@514069435913469962> Произошла ебейшая хуйня")
         raise
@@ -79,7 +80,7 @@ class Bot(BotBase):
     async def on_command_error(self, ctx, exc):
         if isinstance(exc, CommandNotFound):
             # pass
-            await ctx.send("Такой команды нет долбоёб")
+            await ctx.send(f{choice(('Такой команды нет долбоёб', 'Ебать это чё за поеботина', 'Если ты такой тупой команд не знаешь пиши >help', 'Ты заебал'))})
 
         elif hasattr(exc, "original"):
             raise exc.original
