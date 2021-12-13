@@ -93,7 +93,7 @@ class Giveaway(Cog):
 
       winner = random.choice(users)
 
-      await channel.send(f"У нас есть победитель! {winner.mention} выиграл: {prize}!")
+      await channel.send(f"У нас есть победитель! {winner.mention} выиграл: {prize}! *<@&790531068746006548> скоро выдаст его.*")
 
 
     @commands.command()
