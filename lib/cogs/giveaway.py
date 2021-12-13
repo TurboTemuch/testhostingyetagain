@@ -33,7 +33,7 @@ class Giveaway(Cog):
     @commands.command(name="giveaway", aliases=["раздача","gw","конкурс","к"])
     @has_permissions(kick_members=True, administrator=True)
     async def giveaway(self, ctx):
-      await ctx.send("Ответьте на каждый вопрос за 15 секунд")
+      await ctx.send("Ответьте на каждый вопрос за 30 секунд.")
 
       questions = ["Где проводим розыгрыш?", "Через сколько опубликовать итоги? (s|m|h|d)", "Какой приз?"]
 
@@ -46,7 +46,7 @@ class Giveaway(Cog):
         await ctx.send(i)
 
         try:
-          msg = await self.bot.wait_for('message', timeout=15.0, check=check)
+          msg = await self.bot.wait_for('message', timeout=30.0, check=check)
         except asyncio.TimeoutError:
           await ctx.send('Вы отвечали слишком долго.')
           return
@@ -71,7 +71,7 @@ class Giveaway(Cog):
   
       prize = answers[2]
 
-      await ctx.send(f"Розыгрыш будет проведён в {channel.mention} и итоги будут опубликованы через {answers[1]} секунд!")
+      await ctx.send(f"Розыгрыш будет проведён в {channel.mention} и итоги будут опубликованы через {answers[1]}!")
 
       embed = discord.Embed(title = "РОЗЫГРЫШ!", description = f"{prize}", color = ctx.author.color)
 
