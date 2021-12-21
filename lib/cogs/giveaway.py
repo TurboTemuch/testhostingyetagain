@@ -33,7 +33,7 @@ class Giveaway(Cog):
     @commands.command(name="giveaway", aliases=["раздача","gw","конкурс","к"])
     @has_permissions(kick_members=True, administrator=True)
     async def giveaway(self, ctx):
-      await ctx.send("Ответьте на каждый вопрос за 30 секунд.")
+      await ctx.send("Давайте начнём!")
 
       questions = ["Где проводим розыгрыш?", "Через сколько опубликовать итоги? (s|m|h|d)", "Какой приз?"]
 
@@ -46,7 +46,7 @@ class Giveaway(Cog):
         await ctx.send(i)
 
         try:
-          msg = await self.bot.wait_for('message', timeout=30.0, check=check)
+          msg = await self.bot.wait_for('message', timeout=60.0, check=check)
         except asyncio.TimeoutError:
           await ctx.send('Вы отвечали слишком долго.')
           return
