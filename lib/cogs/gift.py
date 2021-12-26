@@ -153,9 +153,9 @@ class Gift(Cog):
 
       await ctx.send(f"{winner.mention} забрал **МИФИЧЕСКИЙ** подарок! <@&880169755397464064> скоро выдаст приз.")
 
-    @commands.command(name="legendgift", aliases=["legenddrop","легаподарок"])
+    @commands.command(name="legendgift", aliases=["legenddrop","легаподарок","legendarygift","legendarydrop"])
     @has_permissions(kick_members=True, administrator=True)
-    async def mythgift(self, ctx, *, imported: Optional[str] = "90s" ):
+    async def legendarygift(self, ctx, *, imported: Optional[str] = "90s" ):
 
       def check(m):
         return m.author == ctx.author and m.channel == ctx.channel
