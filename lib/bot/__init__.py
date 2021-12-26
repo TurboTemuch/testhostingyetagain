@@ -80,7 +80,7 @@ class Bot(BotBase):
     async def on_command_error(self, ctx, exc):
         if isinstance(exc, CommandNotFound):
             # pass
-            await ctx.send(':x: Неизвестная команда. Введите `>хелп` для просмотра списка команд.')
+            await ctx.send(':x: Неизвестная команда. Введите `>help` для просмотра списка команд.')
 
         elif hasattr(exc, "original"):
             raise exc.original
