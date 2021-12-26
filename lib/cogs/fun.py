@@ -33,14 +33,14 @@ class Fun(Cog):
         #await channel.send(embed=embed)
 
     @command(name="info", aliases=["инфо"])
-    async def info(self, channel):
+    async def info(self, ctx, channel):
         embed = Embed(title="[В СЕТИ]", colour=0x00FF00,
                           timestamp=datetime.utcnow())
         fields = [("Бот TurboTemuch успешно запущен!", "Bot created and coded by TurboTemuch#7375", True)]
         for name, value, inline in fields:
             embed.add_field(name=name, value=value, inline=inline)
-            embed.set_author(name="Bot TurboTemuch1")
-            embed.set_footer(text="Branch deployed & dyno connected")
+            embed.set_author(name=f"Bot TurboTemuch1, version {ctx.bot.VERSION}")
+            embed.set_footer(text="Branch deployed & GitHub repository connected.")
         await channel.send(embed=embed)
         
     @command(name="update")
