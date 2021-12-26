@@ -35,7 +35,7 @@ class Gift(Cog):
     @commands.command(name="gift", aliases=["drop","подарок"])
     @has_permissions(kick_members=True, administrator=True)
     async def gift(self, ctx, *, imported: Optional[str] = "30s" ):
-
+  
       def check(m):
         return m.author == ctx.author and m.channel == ctx.channel
 
@@ -59,6 +59,8 @@ class Gift(Cog):
 
       await my_msg.add_reaction("🎉")
 
+      await ctx.message.delete()
+      
       await asyncio.sleep(time)
 
       cache_msg = discord.utils.get(self.bot.cached_messages, id=my_msg.id) #or client.messages depending on your variable
@@ -98,6 +100,8 @@ class Gift(Cog):
 
       await my_msg.add_reaction("🎉")
 
+      await ctx.message.delete()
+      
       await asyncio.sleep(time)
 
       cache_msg = discord.utils.get(self.bot.cached_messages, id=my_msg.id) #or client.messages depending on your variable
@@ -137,6 +141,8 @@ class Gift(Cog):
 
       await my_msg.add_reaction("🎉")
 
+      await ctx.message.delete()
+      
       await asyncio.sleep(time)
 
       cache_msg = discord.utils.get(self.bot.cached_messages, id=my_msg.id) #or client.messages depending on your variable
