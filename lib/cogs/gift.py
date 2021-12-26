@@ -131,8 +131,6 @@ class Gift(Cog):
   
       prize = ":gift:"
 
-    #   await ctx.send(f"Розыгрыш будет проведён в {channel.mention} и итоги будут опубликованы через {answers[1]} секунд!")
-
       embed = discord.Embed(title = "Появился **МИФИЧЕСКИЙ** подарок!", description = f"{prize}", color = 0xFF0000)
 
       embed.set_footer(text = f"Открывается через {imported}!")
@@ -195,6 +193,13 @@ class Gift(Cog):
       winner = random.choice(users)
 
       await ctx.send(f"{winner.mention} забрал :crown: **ЛЕГЕНДАРНЫЙ**:crown:  подарок! <@&880169755397464064> скоро выдаст приз.")
+      
+    @commands.command(name="incoming", aliases=["dropsoon"])
+    @has_permissions(kick_members=True, administrator=True)
+    async def incoming(self, ctx):
+      await ctx.message.delete()
+      embed = discord.Embed(title = "Cкоро будет сброшен подарок!", color = 0xFFC600)
+      
     @Cog.listener()
     async def on_ready(self):
         if not self.bot.ready:
