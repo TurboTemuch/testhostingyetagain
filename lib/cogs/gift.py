@@ -199,6 +199,7 @@ class Gift(Cog):
     async def incoming(self, ctx):
       await ctx.message.delete()
       embed = discord.Embed(title = "Cкоро будет сброшен подарок!", color = 0xFFC600)
+      await ctx.send(embed = embed)
       
     @Cog.listener()
     async def on_ready(self):
