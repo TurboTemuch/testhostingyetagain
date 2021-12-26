@@ -23,14 +23,14 @@ class Fun(Cog):
     async def slap_member(self, ctx, member:Member, *, reason: Optional[str] = "просто так"):
         await ctx.send(f"{ctx.author.name} ударил {member.mention} по причине: {reason}.")
       
-    @command(name="хелп", aliases=["помощь","Помощь"])
-    async def help(self, channel):
-        embed = Embed(title="Команды:", colour=0x00FF00,
-                          timestamp=datetime.utcnow())
-        fields = [("Префикс: `>`","Модуль fun: \nСвязь (Бот, связь, бот) - проверка связи с ботом \nslap (hit, ударить) `>slap @участник причина` \nхелп (Помощь, помощь) - список команд \ninfo (инфо) - информация о боте", True)]
-        for name, value, inline in fields:
-            embed.add_field(name=name, value=value, inline=inline)
-        await channel.send(embed=embed)
+    #@command(name="хелп", aliases=["помощь","Помощь"])
+    #async def help(self, channel):
+        #embed = Embed(title="Команды:", colour=0x00FF00,
+        #                  timestamp=datetime.utcnow())
+        #fields = [("Префикс: `>`","Модуль fun: \nСвязь (Бот, связь, бот) - проверка связи с ботом \nslap (hit, ударить) `>slap @участник причина` \nхелп (Помощь, помощь) - список команд \ninfo (инфо) - информация о боте", True)]
+        #for name, value, inline in fields:
+         #   embed.add_field(name=name, value=value, inline=inline)
+        #await channel.send(embed=embed)
 
     @command(name="info", aliases=["инфо"])
     async def info(self, channel):
