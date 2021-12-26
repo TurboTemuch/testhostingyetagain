@@ -75,7 +75,7 @@ class Gift(Cog):
 
     @commands.command(name="epicgift", aliases=["epicdrop","эпикподарок"])
     @has_permissions(kick_members=True, administrator=True)
-    async def epicgift(self, ctx, *, imported: Optional[str] = "30s" ):
+    async def epicgift(self, ctx, *, imported: Optional[str] = "45s" ):
 
       def check(m):
         return m.author == ctx.author and m.channel == ctx.channel
@@ -155,6 +155,46 @@ class Gift(Cog):
 
       await ctx.send(f"{winner.mention} забрал **МИФИЧЕСКИЙ** подарок! <@&880169755397464064> скоро выдаст приз.")
 
+    @commands.command(name="legendgift", aliases=["legenddrop","легаподарок"])
+    @has_permissions(kick_members=True, administrator=True)
+    async def mythgift(self, ctx, *, imported: Optional[str] = "90s" ):
+
+      def check(m):
+        return m.author == ctx.author and m.channel == ctx.channel
+
+      time = convert(imported)
+      if time == -1:
+        await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
+        return
+      elif time == -2:
+        await ctx.send(f"Некорректно введено время. Введите целое число.")
+        return
+  
+      prize = ":gift:"
+
+    #   await ctx.send(f"Розыгрыш будет проведён в {channel.mention} и итоги будут опубликованы через {answers[1]} секунд!")
+
+      embed = discord.Embed(title = ":crown:Появился **ЛЕГЕНДАРНЫЙ** подарок!:crown: ", description = f"{prize}", color = 0xFF0000)
+
+      embed.set_footer(text = f"Открывается через {imported}!")
+
+      my_msg = await ctx.send(embed = embed)
+
+      await my_msg.add_reaction("🎉")
+
+      await ctx.message.delete()
+      
+      await asyncio.sleep(time)
+
+      cache_msg = discord.utils.get(self.bot.cached_messages, id=my_msg.id) #or client.messages depending on your variable
+      print(cache_msg.reactions)
+      
+      users = await cache_msg.reactions[0].users().flatten()
+      users.pop(users.index(self.bot.user))
+
+      winner = random.choice(users)
+
+      await ctx.send(f"{winner.mention} забрал :crown: **ЛЕГЕНДАРНЫЙ**:crown:  подарок! <@&880169755397464064> скоро выдаст приз.")
     @Cog.listener()
     async def on_ready(self):
         if not self.bot.ready:
