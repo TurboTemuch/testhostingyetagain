@@ -3,6 +3,7 @@ import discord
 import asyncio
 
 from discord import *
+from typing import Optional
 from discord import Message
 from discord import Reaction
 from discord.ext.commands import has_permissions
@@ -100,7 +101,7 @@ class Giveaway(Cog):
 
     @commands.command(name="reroll", aliases=["перерозыгрыш","реролл"], description="Команда для выбора нового победителя конкурса.")
     @commands.has_permissions(kick_members=True)
-    async def reroll(self, ctx, id_):
+    async def reroll(self, ctx, *, id_ : Optional[str]):
       """Выбирает нового победителя конкурса."""
       
       try:
