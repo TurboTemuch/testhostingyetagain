@@ -40,12 +40,12 @@ class Fun(Cog):
     async def info(self, ctx):
         """Актуальная информация про бота."""
         
-        embed = Embed(title="[В СЕТИ]", colour=0x00FF00,
+        embed = Embed(title=f"Версия: `{ctx.bot.VERSION}`", colour=0x00FF00,
                           timestamp=datetime.utcnow())
-        fields = [("Бот TurboTemuch успешно запущен!", "Bot created and coded by TurboTemuch#7375", True)]
+        fields = [("Bot created and coded by TurboTemuch#7375", True)]
         for name, value, inline in fields:
             embed.add_field(name=name, value=value, inline=inline)
-            embed.set_author(name=f"Bot TurboTemuch1, version `{ctx.bot.VERSION}`")
+            embed.set_author(name=f"Бот TurboTemuch1 онлайн!")
             embed.set_footer(text="Branch deployed & GitHub repository connected.")
         await ctx.send(embed=embed)
         
