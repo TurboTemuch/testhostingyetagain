@@ -100,7 +100,7 @@ class Giveaway(Cog):
 
     @commands.command(name="reroll", aliases=["перерозыгрыш","реролл"], description="Команда для выбора нового победителя конкурса.")
     @commands.has_permissions(kick_members=True)
-    async def reroll(self, ctx, channel : discord.TextChannel, id_ : int):
+    async def reroll(self, ctx, id_ : int):
       """Выбирает нового победителя конкурса."""
       
       try:
@@ -112,7 +112,7 @@ class Giveaway(Cog):
 
       winner = random.choice(users)
 
-      await channel.send(f"Новый победитель: {winner.mention}! (Перерозыгрыш)")
+      await ctx.send(f"Новый победитель: {winner.mention}! (Перерозыгрыш)")
 
     @Cog.listener()
     async def on_ready(self):
