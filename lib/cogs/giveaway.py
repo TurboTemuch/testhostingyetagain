@@ -32,7 +32,7 @@ class Giveaway(Cog):
         self.bot = bot
 
     @commands.command(name="giveaway", aliases=["раздача","gw","конкурс","к"], description="Команда для запуска конкурса.")
-    @has_permissions(kick_members=True, administrator=True)
+    @commands.has_role("Менеджер конкурсов")
     async def giveaway(self, ctx):
       """Запускает новый конкурс."""
       
@@ -100,7 +100,7 @@ class Giveaway(Cog):
 
 
     @commands.command(name="reroll", aliases=["перерозыгрыш","реролл"], description="Команда для выбора нового победителя конкурса.")
-    @commands.has_permissions(kick_members=True)
+    @commands.has_role("Менеджер конкурсов")
     async def reroll(self, ctx, msgid : Optional[int]):
       """Выбирает нового победителя конкурса."""
       
