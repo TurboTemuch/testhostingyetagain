@@ -13,6 +13,7 @@ from discord import Embed, File
 from discord.ext.commands import Bot as BotBase
 from discord.ext.commands import CommandNotFound
 from discord.ext.commands import MissingRequiredArgument
+from discord.ext.commands import CheckFailure
 
 from ..db import db
 
@@ -86,6 +87,9 @@ class Bot(BotBase):
         if isinstance(exc, MissingRequiredArgument):
             # pass
             await ctx.send(':exclamation: Отсутствует один или более необходимых аргументов.')
+            
+        if isinstance(exc, CheckFailure):
+            await ctx.send(':x: Недостаточно прав для выполнения этой команды.')
 
         elif hasattr(exc, "original"):
             raise exc.original
