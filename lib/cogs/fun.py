@@ -40,7 +40,7 @@ class Fun(Cog):
     async def info(self, ctx):
         """Актуальная информация про бота."""
         
-        embed = Embed(title=f"Версия: `{ctx.bot.VERSION}`", colour=0x00FF00,
+        embed = Embed(title="Версия: `{ctx.bot.VERSION}`", colour=0x00FF00,
                           timestamp=datetime.utcnow())
         fields = [("Bot created and coded by TurboTemuch#7375", True)]
         for name, value, inline in fields:
