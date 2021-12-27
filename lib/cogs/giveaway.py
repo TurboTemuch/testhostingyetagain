@@ -101,12 +101,12 @@ class Giveaway(Cog):
 
     @commands.command(name="reroll", aliases=["перерозыгрыш","реролл"], description="Команда для выбора нового победителя конкурса.")
     @commands.has_permissions(kick_members=True)
-    async def reroll(self, ctx, id_ : Optional[int]):
+    async def reroll(self, ctx, msgid : Optional[int]):
       """Выбирает нового победителя конкурса."""
       
       try:
         global new_msg
-        new_msg = channel.fetch_message(id_)
+        new_msg = channel.fetch_message(msgid)
       except:
         return await ctx.send("Неправильный ID сообщения с розыгрышем.")
       users = await new_msg.reactions[0].users().flatten()
