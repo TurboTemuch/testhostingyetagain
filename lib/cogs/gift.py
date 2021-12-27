@@ -63,7 +63,7 @@ class Gift(Cog):
 
       await ctx.message.delete()
       
-      await asyncio.sleep(time)
+      await asyncio.sleep(timeout)
 
       cache_msg = discord.utils.get(self.bot.cached_messages, id=my_msg.id) #or client.messages depending on your variable
       print(cache_msg.reactions)
