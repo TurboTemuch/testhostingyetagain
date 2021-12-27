@@ -57,7 +57,7 @@ class Gift(Cog):
 
       my_msg = await ctx.send(embed = embed)
 
-      await my_msg.add_reaction(":gift:")
+      await my_msg.add_reaction("🎁")
 
       await ctx.message.delete()
       
@@ -98,7 +98,7 @@ class Gift(Cog):
 
       my_msg = await ctx.send(embed = embed)
 
-      await my_msg.add_reaction(":gift:")
+      await my_msg.add_reaction("🎁")
 
       await ctx.message.delete()
       
@@ -137,7 +137,7 @@ class Gift(Cog):
 
       my_msg = await ctx.send(embed = embed)
 
-      await my_msg.add_reaction(":gift:")
+      await my_msg.add_reaction("🎁")
 
       await ctx.message.delete()
       
@@ -178,7 +178,7 @@ class Gift(Cog):
 
       my_msg = await ctx.send(embed = embed)
 
-      await my_msg.add_reaction(":gift:")
+      await my_msg.add_reaction("🎁")
 
       await ctx.message.delete()
       
