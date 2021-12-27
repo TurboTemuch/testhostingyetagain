@@ -17,10 +17,14 @@ class Fun(Cog):
 
     @command(name="Связь", aliases=["Бот", "связь", "бот"])
     async def some_amazing_command(self, ctx):
+        """Проверка связи с ботом."""
+        
         await ctx.send(f"{choice((':white_check_mark:', 'Всё работает!', ':eyes:', '5 минут, полёт нормальный!', 'Я жив!', 'На месте!', 'Спасибо <@514069435913469962>, что я работаю!'))}")
 
     @command(name="slap", aliases=["hit","ударить"])
     async def slap_member(self, ctx, member:Member, *, reason: Optional[str] = "просто так"):
+        """Ударьте кого-нибудь."""
+        
         await ctx.send(f"{ctx.author.name} ударил {member.mention} по причине: {reason}.")
       
     #@command(name="хелп", aliases=["помощь","Помощь"])
@@ -34,17 +38,21 @@ class Fun(Cog):
 
     @command(name="info", aliases=["инфо"])
     async def info(self, ctx, channel):
+        """Актуальная информация про бота."""
+        
         embed = Embed(title="[В СЕТИ]", colour=0x00FF00,
                           timestamp=datetime.utcnow())
         fields = [("Бот TurboTemuch успешно запущен!", "Bot created and coded by TurboTemuch#7375", True)]
         for name, value, inline in fields:
             embed.add_field(name=name, value=value, inline=inline)
-            embed.set_author(name=f"Bot TurboTemuch1, version {ctx.bot.VERSION}")
+            embed.set_author(name=f"Bot TurboTemuch1, version `{ctx.bot.VERSION}`")
             embed.set_footer(text="Branch deployed & GitHub repository connected.")
         await channel.send(embed=embed)
         
     @command(name="update")
     async def update(self, ctx):
+        """Подготовка бота к обновлению."""
+        
         if ctx.message.author.id ==514069435913469962:
             await ctx.bot.change_presence(status=discord.Status.idle, activity=discord.Game("ОБНОВЛЕНИЕ"))
         else:
@@ -52,8 +60,10 @@ class Fun(Cog):
                 
     @command(name="stable")
     async def stable(self, ctx):
+        """Завершение обновления."""
+        
         if ctx.message.author.id ==514069435913469962:
-            await ctx.bot.change_presence(status=discord.Status.online, activity=discord.Game(f">хелп (version {ctx.bot.VERSION})"))
+            await ctx.bot.change_presence(status=discord.Status.online, activity=discord.Game(f">хhelp <команда> (version {ctx.bot.VERSION})"))
         else:
             await ctx.send("```- У вас нет доступа к этой команде -```")
 
