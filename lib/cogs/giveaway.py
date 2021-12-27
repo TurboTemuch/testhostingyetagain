@@ -89,7 +89,7 @@ class Giveaway(Cog):
       await asyncio.sleep(time)
 
       cache_msg = discord.utils.get(self.bot.cached_messages, id=my_msg.id) #or client.messages depending on your variable
-      print(cache_msg.reactions)
+      #print(cache_msg.reactions)
       
       users = await cache_msg.reactions[0].users().flatten()
       users.pop(users.index(self.bot.user))
