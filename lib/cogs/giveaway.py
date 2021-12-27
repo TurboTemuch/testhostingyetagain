@@ -110,7 +110,7 @@ class Giveaway(Cog):
       except:
         return await ctx.send("Неправильный ID сообщения с розыгрышем.")
       users = await new_msg.reactions[0].users().flatten()
-      users.pop(users.index(self.bot))
+      users.pop(users.index(self.bot.user))
 
       winner = random.choice(users)
 
