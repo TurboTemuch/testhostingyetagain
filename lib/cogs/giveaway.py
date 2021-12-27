@@ -33,6 +33,8 @@ class Giveaway(Cog):
     @commands.command(name="giveaway", aliases=["раздача","gw","конкурс","к"])
     @has_permissions(kick_members=True, administrator=True)
     async def giveaway(self, ctx):
+      """Запускает новый конкурс."""
+      
       await ctx.send("Давайте начнём!")
 
       questions = ["Где проводим розыгрыш?", "Через сколько опубликовать итоги? (s|m|h|d)", "Какой приз?"]
@@ -99,6 +101,8 @@ class Giveaway(Cog):
     @commands.command()
     @commands.has_permissions(kick_members=True)
     async def reroll(self, ctx, channel : discord.TextChannel, id_ : int):
+      """Выбирает нового победителя конкурса."""
+      
       try:
         new_msg = await channel.fetch_message(id_)
       except:
