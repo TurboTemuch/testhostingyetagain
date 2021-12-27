@@ -30,7 +30,7 @@ class Giveaway(Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name="giveaway", aliases=["раздача","gw","конкурс","к"])
+    @commands.command(name="giveaway", aliases=["раздача","gw","конкурс","к"], description="Команда для запуска конкурса.")
     @has_permissions(kick_members=True, administrator=True)
     async def giveaway(self, ctx):
       """Запускает новый конкурс."""
@@ -98,7 +98,7 @@ class Giveaway(Cog):
       await channel.send(f"У нас есть победитель! {winner.mention} выиграл: {prize}! *<@&790531068746006548> скоро выдаст его.*")
 
 
-    @commands.command()
+    @commands.command(name="reroll", aliases=["перерозыгрыш","реролл"], description="Команда для выбора нового победителя конкурса.")
     @commands.has_permissions(kick_members=True)
     async def reroll(self, ctx, channel : discord.TextChannel, id_ : int):
       """Выбирает нового победителя конкурса."""
