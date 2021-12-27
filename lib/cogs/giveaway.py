@@ -104,7 +104,7 @@ class Giveaway(Cog):
       """Выбирает нового победителя конкурса."""
       
       try:
-        new_msg = discord.utils.get(self.bot.cached_messages, id=id_)
+        new_msg = discord.utils.get(self.bot.cached_messages, id=[0])
       except:
         await ctx.send("Неправильный ID сообщения с розыгрышем.")
       users = await new_msg.reactions[0].users().flatten()
