@@ -82,9 +82,9 @@ class Bot(BotBase):
             # pass
             await ctx.send(':x: Неизвестная команда. Введите `>help` для просмотра списка команд.')
        
-        if isinstance(exc, MissingRequiredArgument):
-            # pass
-            await ctx.send(':exclamation: Отсутствует один или более необходимых аргументов.')
+#         if isinstance(exc, MissingRequiredArgument):
+#             # pass
+#             await ctx.send(':exclamation: Отсутствует один или более необходимых аргументов.')
 
         elif hasattr(exc, "original"):
             raise exc.original
