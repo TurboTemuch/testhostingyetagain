@@ -33,17 +33,19 @@ class Gift(Cog):
         self.bot = bot
 
     @commands.command(name="gift", aliases=["drop","подарок"])
+    @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
-    async def gift(self, ctx, *, imported: Optional[str] = "30s" ):
+    async def gift(self, ctx, *, time: Optional[str] = "30s" ):
+      """С неба падает подарок!"""
   
       def check(m):
         return m.author == ctx.author and m.channel == ctx.channel
 
-      time = convert(imported)
-      if time == -1:
+      timeout = convert(imported)
+      if timeout == -1:
         await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
         return
-      elif time == -2:
+      elif timeout == -2:
         await ctx.send(f"Некорректно введено время. Введите целое число.")
         return
   
@@ -74,17 +76,19 @@ class Gift(Cog):
       await ctx.send(f"Подарок забрал {winner.mention}! <@&880169755397464064> скоро выдаст приз.")
 
     @commands.command(name="epicgift", aliases=["epicdrop","эпикподарок"])
+    @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
-    async def epicgift(self, ctx, *, imported: Optional[str] = "45s" ):
-
+    async def epicgift(self, ctx, *, time: Optional[str] = "45s" ):
+      """С неба падает эпический подарок!"""
+        
       def check(m):
         return m.author == ctx.author and m.channel == ctx.channel
 
-      time = convert(imported)
-      if time == -1:
+      timeout = convert(time)
+      if timeout == -1:
         await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
         return
-      elif time == -2:
+      elif timeout == -2:
         await ctx.send(f"Некорректно введено время. Введите целое число.")
         return
   
@@ -115,17 +119,19 @@ class Gift(Cog):
       await ctx.send(f"{winner.mention} забрал *эпический* подарок! <@&880169755397464064> скоро выдаст приз.")
 
     @commands.command(name="mythgift", aliases=["mythdrop","мифподарок"])
+    @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
-    async def mythgift(self, ctx, *, imported: Optional[str] = "60s" ):
+    async def mythgift(self, ctx, *, time: Optional[str] = "60s" ):
+      """С неба падает мифический подарок!"""
 
       def check(m):
         return m.author == ctx.author and m.channel == ctx.channel
 
-      time = convert(imported)
-      if time == -1:
+      timeout = convert(time)
+      if timeout == -1:
         await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
         return
-      elif time == -2:
+      elif timeout == -2:
         await ctx.send(f"Некорректно введено время. Введите целое число.")
         return
   
@@ -141,7 +147,7 @@ class Gift(Cog):
 
       await ctx.message.delete()
       
-      await asyncio.sleep(time)
+      await asyncio.sleep(timeout)
 
       cache_msg = discord.utils.get(self.bot.cached_messages, id=my_msg.id) #or client.messages depending on your variable
       print(cache_msg.reactions)
@@ -154,17 +160,19 @@ class Gift(Cog):
       await ctx.send(f"{winner.mention} забрал **МИФИЧЕСКИЙ** подарок! <@&880169755397464064> скоро выдаст приз.")
 
     @commands.command(name="legendgift", aliases=["legenddrop","легаподарок","legendarygift","legendarydrop"])
+    @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
-    async def legendarygift(self, ctx, *, imported: Optional[str] = "90s" ):
-
+    async def legendarygift(self, ctx, *, time: Optional[str] = "90s" ):
+      """С неба падает легендарный подарок!"""
+        
       def check(m):
         return m.author == ctx.author and m.channel == ctx.channel
 
-      time = convert(imported)
-      if time == -1:
+      timeout = convert(time)
+      if timeout == -1:
         await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
         return
-      elif time == -2:
+      elif timeout == -2:
         await ctx.send(f"Некорректно введено время. Введите целое число.")
         return
   
@@ -182,7 +190,7 @@ class Gift(Cog):
 
       await ctx.message.delete()
       
-      await asyncio.sleep(time)
+      await asyncio.sleep(timeout)
 
       cache_msg = discord.utils.get(self.bot.cached_messages, id=my_msg.id) #or client.messages depending on your variable
       print(cache_msg.reactions)
@@ -195,8 +203,10 @@ class Gift(Cog):
       await ctx.send(f"{winner.mention} забрал :crown: **ЛЕГЕНДАРНЫЙ**:crown:  подарок! <@&880169755397464064> скоро выдаст приз.")
       
     @commands.command(name="incoming", aliases=["dropsoon"])
+    @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
     async def incoming(self, ctx):
+      """Объявляет о скором появлении подарков."""
       await ctx.message.delete()
       embed = discord.Embed(title = "Cкоро будет сброшен подарок!", color = 0xFFC600)
       await ctx.send(embed = embed)
