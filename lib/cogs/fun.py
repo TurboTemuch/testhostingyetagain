@@ -15,28 +15,19 @@ class Fun(Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @command(name="Связь", aliases=["Бот", "связь", "бот"])
+    @command(name="Связь", aliases=["Бот", "связь", "бот"], description="Проверка связи с ботом.")
     async def some_amazing_command(self, ctx):
         """Проверка связи с ботом."""
         
         await ctx.send(f"{choice((':white_check_mark:', 'Всё работает!', ':eyes:', '5 минут, полёт нормальный!', 'Я жив!', 'На месте!', 'Спасибо <@514069435913469962>, что я работаю!'))}")
 
-    @command(name="slap", aliases=["hit","ударить"])
+    @command(name="slap", aliases=["hit","ударить"], description="Ударьте кого-нибудь.")
     async def slap_member(self, ctx, member:Member, *, reason: Optional[str] = "просто так"):
         """Ударьте кого-нибудь."""
         
         await ctx.send(f"{ctx.author.name} ударил {member.mention} по причине: {reason}.")
-      
-    #@command(name="хелп", aliases=["помощь","Помощь"])
-    #async def help(self, channel):
-        #embed = Embed(title="Команды:", colour=0x00FF00,
-        #                  timestamp=datetime.utcnow())
-        #fields = [("Префикс: `>`","Модуль fun: \nСвязь (Бот, связь, бот) - проверка связи с ботом \nslap (hit, ударить) `>slap @участник причина` \nхелп (Помощь, помощь) - список команд \ninfo (инфо) - информация о боте", True)]
-        #for name, value, inline in fields:
-         #   embed.add_field(name=name, value=value, inline=inline)
-        #await channel.send(embed=embed)
 
-    @command(name="info", aliases=["инфо"])
+    @command(name="info", aliases=["инфо"], description="Актуальная информация про бота.")
     async def info(self, ctx):
         """Актуальная информация про бота."""
         
@@ -49,18 +40,18 @@ class Fun(Cog):
             embed.set_footer(text="Branch deployed & GitHub repository connected.")
         await ctx.send(embed=embed)
         
-    @command(name="update")
+    @command(name="update", description="Техническая команда для подготовки к обновлению.")
     async def update(self, ctx):
-        """Подготовка бота к обновлению."""
+        """Техническая команда для подготовки к обновлению."""
         
         if ctx.message.author.id ==514069435913469962:
             await ctx.bot.change_presence(status=discord.Status.idle, activity=discord.Game("ОБНОВЛЕНИЕ"))
         else:
             await ctx.send("```- У вас нет доступа к этой команде -```")
                 
-    @command(name="stable")
+    @command(name="stable", description="Техническая команда для завершения обновления.")
     async def stable(self, ctx):
-        """Завершение обновления."""
+        """Техническая команда для завершения обновления."""
         
         if ctx.message.author.id ==514069435913469962:
             await ctx.bot.change_presence(status=discord.Status.online, activity=discord.Game(f">хhelp <команда> (version {ctx.bot.VERSION})"))
