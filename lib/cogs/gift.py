@@ -55,7 +55,7 @@ class Gift(Cog):
 
       embed = discord.Embed(title = "Появился подарок!", description = f"{prize}", color = 0xFFFFFF)
 
-      embed.set_footer(text = f"Открывается через {imported}!")
+      embed.set_footer(text = f"Открывается через {time}!")
 
       my_msg = await ctx.send(embed = embed)
 
@@ -98,7 +98,7 @@ class Gift(Cog):
 
       embed = discord.Embed(title = "Появился *эпический* подарок!", description = f"{prize}", color = 0x7E13AE)
 
-      embed.set_footer(text = f"Открывается через {imported}!")
+      embed.set_footer(text = f"Открывается через {time}!")
 
       my_msg = await ctx.send(embed = embed)
 
@@ -139,7 +139,7 @@ class Gift(Cog):
 
       embed = discord.Embed(title = "Появился **МИФИЧЕСКИЙ** подарок!", description = f"{prize}", color = 0xFF0000)
 
-      embed.set_footer(text = f"Открывается через {imported}!")
+      embed.set_footer(text = f"Открывается через {time}!")
 
       my_msg = await ctx.send(embed = embed)
 
@@ -182,7 +182,7 @@ class Gift(Cog):
 
       embed = discord.Embed(title = ":crown:Появился **ЛЕГЕНДАРНЫЙ** подарок!:crown: ", description = f"{prize}", color = 0xFFC600)
 
-      embed.set_footer(text = f"Открывается через {imported}!")
+      embed.set_footer(text = f"Открывается через {time}!")
 
       my_msg = await ctx.send(embed = embed)
 
