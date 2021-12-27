@@ -100,7 +100,7 @@ class Giveaway(Cog):
 
     @commands.command(name="reroll", aliases=["перерозыгрыш","реролл"], description="Команда для выбора нового победителя конкурса.")
     @commands.has_permissions(kick_members=True)
-    async def reroll(self, ctx, id_ : int):
+    async def reroll(self, ctx, id_):
       """Выбирает нового победителя конкурса."""
       
       try:
