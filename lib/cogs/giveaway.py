@@ -107,7 +107,7 @@ class Giveaway(Cog):
       try:
         new_msg = channel.fetch_message(id_)
       except:
-        await ctx.send("Неправильный ID сообщения с розыгрышем.")
+        return await ctx.send("Неправильный ID сообщения с розыгрышем.")
       users = await new_msg.reactions[0].users().flatten()
       users.pop(users.index(self.bot))
 
