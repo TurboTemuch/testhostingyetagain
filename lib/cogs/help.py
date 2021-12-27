@@ -41,8 +41,8 @@ class HelpMenu(ListPageSource):
     async def format_page(self, menu, entries):
         fields = []
 
-        for entry in entries:
-            fields.append((entry.brief or "Описание отсутствует.", description(entry)))
+        for command in entries:
+            fields.append((command.description or "Описание отсутствует.", syntax(command)))
 
         return await self.write_page(menu, fields)
 
