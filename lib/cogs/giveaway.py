@@ -104,7 +104,7 @@ class Giveaway(Cog):
       """Выбирает нового победителя конкурса."""
       
       try:
-        new_msg = await channel.fetch_message(id_)
+        new_msg = await fetch_message(id_)
       except:
         await ctx.send("Неправильный ID сообщения с розыгрышем.")
       users = await new_msg.reactions[0].users().flatten()
