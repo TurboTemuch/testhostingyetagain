@@ -56,7 +56,7 @@ class Help(Cog):
         embed.add_field(name="Описание команды", value=command.help)
         await ctx.send(embed=embed)
     
-    @command(name="help")
+    @command(name="help", aliases=["хелп","помощь"], description="Выводит это сообщение.")
     async def show_help(self, ctx, cmd: Optional[str]):
         """Выводит это сообщение."""
         if cmd is None:
