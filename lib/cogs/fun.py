@@ -43,8 +43,8 @@ class Fun(Cog):
         embed = Embed(title="Версия: `{ctx.bot.VERSION}`", colour=0x00FF00,
                           timestamp=datetime.utcnow())
         fields = [("Bot created and coded by TurboTemuch#7375", True)]
-        for name, value, inline in fields:
-            embed.add_field(name=name, value=value, inline=inline)
+        for name, value in fields:
+            embed.add_field(name=name, value=value)
             embed.set_author(name=f"Бот TurboTemuch1 онлайн!")
             embed.set_footer(text="Branch deployed & GitHub repository connected.")
         await ctx.send(embed=embed)
