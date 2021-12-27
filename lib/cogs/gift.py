@@ -32,7 +32,7 @@ class Gift(Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name="gift", aliases=["drop","подарок"])
+    @commands.command(name="gift", aliases=["drop","подарок"], description="С неба падает подарок!")
     @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
     async def gift(self, ctx, *, time: Optional[str] = "30s" ):
@@ -75,7 +75,7 @@ class Gift(Cog):
 
       await ctx.send(f"Подарок забрал {winner.mention}! <@&880169755397464064> скоро выдаст приз.")
 
-    @commands.command(name="epicgift", aliases=["epicdrop","эпикподарок"])
+    @commands.command(name="epicgift", aliases=["epicdrop","эпикподарок"], description="С неба падает эпический подарок!")
     @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
     async def epicgift(self, ctx, *, time: Optional[str] = "45s" ):
@@ -118,7 +118,7 @@ class Gift(Cog):
 
       await ctx.send(f"{winner.mention} забрал *эпический* подарок! <@&880169755397464064> скоро выдаст приз.")
 
-    @commands.command(name="mythgift", aliases=["mythdrop","мифподарок"])
+    @commands.command(name="mythgift", aliases=["mythdrop","мифподарок"], description="С неба падает мифический подарок!")
     @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
     async def mythgift(self, ctx, *, time: Optional[str] = "60s" ):
@@ -159,7 +159,7 @@ class Gift(Cog):
 
       await ctx.send(f"{winner.mention} забрал **МИФИЧЕСКИЙ** подарок! <@&880169755397464064> скоро выдаст приз.")
 
-    @commands.command(name="legendgift", aliases=["legenddrop","легаподарок","legendarygift","legendarydrop"])
+    @commands.command(name="legendgift", aliases=["legenddrop","легаподарок","legendarygift","legendarydrop"], description="С неба падает легендарный подарок!")
     @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
     async def legendarygift(self, ctx, *, time: Optional[str] = "90s" ):
@@ -202,7 +202,7 @@ class Gift(Cog):
 
       await ctx.send(f"{winner.mention} забрал :crown: **ЛЕГЕНДАРНЫЙ**:crown:  подарок! <@&880169755397464064> скоро выдаст приз.")
       
-    @commands.command(name="incoming", aliases=["dropsoon"])
+    @commands.command(name="incoming", aliases=["dropsoon"], description="Объявление о скором появлении подарков.")
     @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
     async def incoming(self, ctx):
