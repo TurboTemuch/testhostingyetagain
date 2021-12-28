@@ -11,11 +11,7 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
 from discord import Embed, File
 from discord.ext.commands import Bot as BotBase
-from discord.ext.commands import CommandNotFound
-from discord.ext.commands import MissingRequiredArgument
-from discord.ext.commands import CheckFailure
-from discord.ext.commands import BadArgument
-from discord.ext.commands import MemberNotFound
+from discord.ext.commands import (CommandNotFound, MemberNotFound, BadArgument, CheckFailure, MissingRequiredArgument, CommandOnCooldown)
 
 from ..db import db
 
@@ -98,6 +94,9 @@ class Bot(BotBase):
             
         if isinstance(exc, BadArgument):
             await ctx.send(':x: Введён некорректный аргумент.')
+            
+        if isinstance(exc, CommandOnCooldown):
+            await ctx.send(f":clock1: Вы достигли кулдауна команды! Вы сможете использовать её вновь через {exc.retry.after:,.2f} секунд.")
 
         elif hasattr(exc, "original"):
             raise exc.original
