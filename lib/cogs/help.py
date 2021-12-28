@@ -1,6 +1,6 @@
 from typing import Optional
 from discord.ext.commands import Cog, BucketType
-from discord.ext.commands import command
+from discord.ext.commands import command, cooldown
 from discord.ext.menus import MenuPages, ListPageSource
 from discord import Embed, embeds
 from discord.utils import get
