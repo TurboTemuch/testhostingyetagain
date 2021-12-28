@@ -3,10 +3,10 @@ import discord
 import asyncio
 
 from discord import *
-from discord import Message, Reaction, BucketType
+from discord import Message, Reaction
 from discord.ext.commands import has_permissions
 from discord.ext import commands
-from discord.ext.commands import Cog
+from discord.ext.commands import Cog, BucketType
 from discord.ext.commands import command, cooldown
 
 from typing import Optional
