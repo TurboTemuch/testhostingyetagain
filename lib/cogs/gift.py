@@ -3,8 +3,7 @@ import discord
 import asyncio
 
 from discord import *
-from discord import Message
-from discord import Reaction
+from discord import Message, Reaction, BucketType
 from discord.ext.commands import has_permissions
 from discord.ext import commands
 from discord.ext.commands import Cog
@@ -35,6 +34,7 @@ class Gift(Cog):
     @commands.command(name="gift", aliases=["drop","подарок"], description="С неба падает подарок!")
     @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
+    @cooldown(1, 5, BucketType.user)
     async def gift(self, ctx, *, time: Optional[str] = "30s" ):
       """С неба падает подарок!"""
   
@@ -78,6 +78,7 @@ class Gift(Cog):
     @commands.command(name="epicgift", aliases=["epicdrop","эпикподарок"], description="С неба падает эпический подарок!")
     @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
+    @cooldown(1, 5, BucketType.user)
     async def epicgift(self, ctx, *, time: Optional[str] = "45s" ):
       """С неба падает эпический подарок!"""
         
@@ -121,6 +122,7 @@ class Gift(Cog):
     @commands.command(name="mythgift", aliases=["mythdrop","мифподарок"], description="С неба падает мифический подарок!")
     @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
+    @cooldown(1, 5, BucketType.user)
     async def mythgift(self, ctx, *, time: Optional[str] = "60s" ):
       """С неба падает мифический подарок!"""
 
@@ -162,6 +164,7 @@ class Gift(Cog):
     @commands.command(name="legendgift", aliases=["legenddrop","легаподарок","legendarygift","legendarydrop"], description="С неба падает легендарный подарок!")
     @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
+    @cooldown(1, 5, BucketType.user)
     async def legendarygift(self, ctx, *, time: Optional[str] = "90s" ):
       """С неба падает легендарный подарок!"""
         
@@ -205,6 +208,7 @@ class Gift(Cog):
     @commands.command(name="incoming", aliases=["dropsoon"], description="Объявление о скором появлении подарков.")
     @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
+    @cooldown(1, 30, BucketType.user)
     async def incoming(self, ctx):
       """Объявляет о скором появлении подарков."""
       await ctx.message.delete()
