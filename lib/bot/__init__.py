@@ -14,6 +14,8 @@ from discord.ext.commands import Bot as BotBase
 from discord.ext.commands import CommandNotFound
 from discord.ext.commands import MissingRequiredArgument
 from discord.ext.commands import CheckFailure
+from discord.ext.commands import BadArgument
+from discord.ext.commands import MemberNotFound
 
 from ..db import db
 
@@ -76,7 +78,7 @@ class Bot(BotBase):
         if err == "on_command_error":
             await args[0].send(':tools: Произошла ошибка при выполнении команды.')
 
-        await self.stdout.send("<@514069435913469962> Произошла ошибка при выполнении команды.")
+#        await self.stdout.send("<@514069435913469962> Произошла ошибка при выполнении команды.")
         raise
 
     async def on_command_error(self, ctx, exc):
@@ -90,6 +92,12 @@ class Bot(BotBase):
             
         if isinstance(exc, CheckFailure):
             await ctx.send(':x: Недостаточно прав для выполнения этой команды.')
+            
+        if isinstance(exc, MemberNotFound):
+            await ctx.send(':x: Пользователь не найден.')
+            
+        if isinstance(exc, BadArgument):
+            await ctx.send(':x: Введён некорректный аргумент.')
 
         elif hasattr(exc, "original"):
             raise exc.original
