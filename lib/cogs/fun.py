@@ -8,7 +8,7 @@ from datetime import datetime
 from discord import Intents
 from discord import Member
 from discord import Embed, File
-from discord.ext.commands import Cog
+from discord.ext.commands import Cog, BucketType
 from discord.ext.commands import command
 
 class Fun(Cog):
