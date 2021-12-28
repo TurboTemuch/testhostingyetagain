@@ -9,7 +9,7 @@ from discord import Intents
 from discord import Member
 from discord import Embed, File
 from discord.ext.commands import Cog, BucketType
-from discord.ext.commands import command
+from discord.ext.commands import command, cooldown
 
 class Fun(Cog):
     def __init__(self, bot):
