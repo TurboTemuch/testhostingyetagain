@@ -11,7 +11,7 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
 from discord import Embed, File
 from discord.ext.commands import Bot as BotBase
-from discord.ext.commands import (CommandNotFound, MemberNotFound, BadArgument, CheckFailure, MissingRequiredArgument, CommandOnCooldown)
+from discord.ext.commands import (CommandNotFound, MemberNotFound, BadArgument, CheckFailure, MissingRequiredArgument, CommandOnCooldown, ExtensionFailed)
 
 from ..db import db
 
@@ -97,6 +97,9 @@ class Bot(BotBase):
             
         if isinstance(exc, CommandOnCooldown):
             await ctx.send(f":clock1: Вы достигли кулдауна команды! Вы сможете использовать её вновь через {exc.retry.after:,.2f} секунд.")
+            
+        if isinstance(exc, ExtensionFailed):
+            print(f"Failed to load lib.cogs.{cog} cog.")
 
         elif hasattr(exc, "original"):
             raise exc.original
