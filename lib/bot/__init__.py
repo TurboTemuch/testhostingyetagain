@@ -11,13 +11,14 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
 from discord import Embed, File
 from discord.ext.commands import Bot as BotBase
-from discord.ext.commands import (CommandNotFound, MemberNotFound, BadArgument, CheckFailure, MissingRequiredArgument, CommandOnCooldown, ExtensionFailed)
+from discord.ext.commands import (CommandNotFound, MemberNotFound, BadArgument, CheckFailure, MissingRequiredArgument, CommandOnCooldown)
 
 from ..db import db
 
 PREFIX = ">"
 OWNER_IDS = [514069435913469962]
 COGS = [p.stem for p in Path(".").glob("./lib/cogs/*.py")]
+IGNORE_EXCEPTIONS = (CommandNotFound, MemberNotFound, BadArgument, CheckFailure, MissingRequiredArgument, CommandOnCooldown)
 
 
 class Ready(object):
@@ -78,28 +79,31 @@ class Bot(BotBase):
         raise
 
     async def on_command_error(self, ctx, exc):
-        if isinstance(exc, CommandNotFound):
+        if any([isinstance(exc, error) for errors in IGNORE_EXCEPTIONS]):
+            pass
+        
+        elif isinstance(exc, CommandNotFound):
             # pass
             await ctx.send(':x: Неизвестная команда. Введите `>help` для просмотра списка команд.')
        
-        if isinstance(exc, MissingRequiredArgument):
+        elif isinstance(exc, MissingRequiredArgument):
             # pass
             await ctx.send(':exclamation: Отсутствует один или более необходимых аргументов.')
             
-        if isinstance(exc, CheckFailure):
+        elif isinstance(exc, CheckFailure):
             await ctx.send(':x: Недостаточно прав для выполнения этой команды.')
             
-        if isinstance(exc, MemberNotFound):
+        elif isinstance(exc, MemberNotFound):
             await ctx.send(':x: Пользователь не найден.')
             
-        if isinstance(exc, BadArgument):
+        elif isinstance(exc, BadArgument):
             await ctx.send(':x: Введён некорректный аргумент.')
             
-        if isinstance(exc, CommandOnCooldown):
+        elif isinstance(exc, CommandOnCooldown):
             await ctx.send(f":clock1: Вы достигли кулдауна команды! Вы сможете использовать её вновь через {exc.retry_after:,.2f} секунд.")
             
-        if isinstance(exc, ExtensionFailed):
-            print(f"Failed to load lib.cogs.{cog} cog.")
+#         elif isinstance(exc, ExtensionFailed):
+#             print(f"Failed to load lib.cogs.{cog} cog.")
 
         elif hasattr(exc, "original"):
             raise exc.original
