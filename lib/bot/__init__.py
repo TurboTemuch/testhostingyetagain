@@ -95,8 +95,8 @@ class Bot(BotBase):
         if isinstance(exc, BadArgument):
             await ctx.send(':x: Введён некорректный аргумент.')
             
-        if isinstance(exc, CommandOnCooldown):
-            await ctx.send(f":clock1: Вы достигли кулдауна команды! Вы сможете использовать её вновь через {exc.retry.after:,.2f} секунд.")
+#         if isinstance(exc, CommandOnCooldown):
+#             await ctx.send(f":clock1: Вы достигли кулдауна команды! Вы сможете использовать её вновь через {exc.retry.after:,.2f} секунд.")
             
         if isinstance(exc, ExtensionFailed):
             print(f"Failed to load lib.cogs.{cog} cog.")
