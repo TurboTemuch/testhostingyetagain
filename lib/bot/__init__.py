@@ -11,14 +11,14 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
 from discord import Embed, File
 from discord.ext.commands import Bot as BotBase
-from discord.ext.commands import (CommandNotFound, MemberNotFound, BadArgument, CheckFailure, MissingRequiredArgument, CommandOnCooldown)
+from discord.ext.commands import (CommandNotFound, MemberNotFound, BadArgument, CheckFailure, MissingRequiredArgument, CommandOnCooldown, ExtensionFailed, ExtensionNotFound)
 
 from ..db import db
 
 PREFIX = ">"
 OWNER_IDS = [514069435913469962]
 COGS = [p.stem for p in Path(".").glob("./lib/cogs/*.py")]
-IGNORE_EXCEPTIONS = (CommandNotFound, MemberNotFound, BadArgument, CheckFailure, MissingRequiredArgument, CommandOnCooldown)
+IGNORE_EXCEPTIONS = (ExtensionFailed, ExtensionNotFound)
 
 
 class Ready(object):
