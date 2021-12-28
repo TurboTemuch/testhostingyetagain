@@ -9,7 +9,7 @@ from discord import Reaction
 from discord.ext.commands import has_permissions
 from discord.ext import commands
 from discord.ext.commands import Cog
-from discord.ext.commands import command
+from discord.ext.commands import command, cooldown
 
 def convert(time):
   pos = ["s","m","h","d"]
