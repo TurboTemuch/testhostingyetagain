@@ -57,6 +57,7 @@ class Help(Cog):
         await ctx.send(embed=embed)
     
     @command(name="help", aliases=["хелп","помощь"], description="Выводит это сообщение.")
+    @cooldown(1, 10, BucketType.user)
     async def show_help(self, ctx, cmd: Optional[str]):
         """Выводит это сообщение."""
         if cmd is None:
