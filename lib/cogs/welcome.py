@@ -15,7 +15,8 @@ class Welcome(Cog):
     @Cog.listener()
     async def on_member_join(self, member):
         db.execute("INSERT INTO exp (UserID) VALUES (?)", member.id)
-        await self.bot.get_channel(821776825616695316).send(f"Добро пожаловать на сервер **{member.guild.name}** {member.mention}! Не забудьте прочитать правила в канале <#742651335262076938>!")
+        channel = await self.bot.get_channel(821776825616695316)
+        await channel.send(f"Добро пожаловать на сервер **{member.guild.name}** {member.mention}! Не забудьте прочитать правила в канале <#742651335262076938>!")
         try:
             await member.send(f"Добро пожаловать на сервер **{member.guild.name}**! Чувствуйте себя, как дома!")
         except Forbidden:
