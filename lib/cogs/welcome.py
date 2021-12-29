@@ -1,6 +1,8 @@
 from discord.errors import Forbidden
 from discord.ext.commands import Cog, command
 
+from ..db import db
+
 class Welcome(Cog):
     def __init__(self, bot):
         self.bot = bot
