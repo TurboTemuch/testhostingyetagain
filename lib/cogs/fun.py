@@ -59,7 +59,7 @@ class Fun(Cog):
     @command(name="toggle", description="Включение или выключение команд.")
     @commands.is_owner()
     async def toggle(self, ctx, *, command):
-        command = self.client.get_command(command)
+        command = self.bot.get_command(command)
 
         if command is None:
             await ctx.send(":x: Невозможно найти команду с таким именем.")
