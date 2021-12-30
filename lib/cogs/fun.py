@@ -37,7 +37,7 @@ class Fun(Cog):
         
         embed = Embed(title=f"Версия: `{ctx.bot.VERSION}`", colour=0x00FF00,
                           timestamp=datetime.utcnow())
-        fields = [("Bot created and coded by TurboTemuch#7375", "Введите `>help <команда>` для просмотра использования команды", True)]
+        fields = [("Bot created and coded by TurboTemuch#7375", "Введите `/help <команда>` для просмотра использования команды", True)]
         for name, value, inline in fields:
             embed.add_field(name=name, value=value, inline=inline)
             embed.set_author(name=f"Бот TurboTemuch1 онлайн!")
@@ -54,7 +54,7 @@ class Fun(Cog):
     @command(name="stable", description="Техническая команда для завершения обновления.")
     @commands.is_owner()
     async def stable(self, ctx):
-        await ctx.bot.change_presence(status=discord.Status.online, activity=discord.Game(f">хhelp <команда> (version {ctx.bot.VERSION})"))
+        await ctx.bot.change_presence(status=discord.Status.online, activity=discord.Game(f"/help (version {ctx.bot.VERSION})"))
 
     @Cog.listener()
     async def on_ready(self):
