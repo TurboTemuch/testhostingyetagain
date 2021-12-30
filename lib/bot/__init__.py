@@ -15,7 +15,7 @@ from discord.ext.commands import (CommandNotFound, MemberNotFound, BadArgument, 
 
 from ..db import db
 
-PREFIX = "/"
+PREFIX = ":"
 OWNER_IDS = [514069435913469962]
 COGS = [p.stem for p in Path(".").glob("./lib/cogs/*.py")]
 IGNORE_EXCEPTIONS = (ExtensionFailed, ExtensionNotFound)
