@@ -9,6 +9,7 @@ from discord import Intents
 from discord import Member
 from discord import Embed, File
 from discord.ext import commands
+from discord.ext.commands import has_permissions
 from discord.ext.commands import Cog, BucketType
 from discord.ext.commands import command, cooldown
 
@@ -28,8 +29,22 @@ class Fun(Cog):
     async def slap_member(self, ctx, member:Member, *, reason: Optional[str] = "просто так"):
         """Ударьте кого-нибудь."""
         
-        await ctx.send(f"{ctx.author.name} ударил {member.mention} по причине: {reason}.")
+        await ctx.send(f"{ctx.author.mention} ударил {member.mention} по причине: {reason}.")
 
+    @command(name="basement", aliases=["trap","подвал"], description="Посадите кого-нибудь в подвал.")
+    @cooldown(1, 20, BucketType.user)
+    async def slap_member(self, ctx, member:Member):
+        """Ударьте кого-нибудь."""
+        
+        await ctx.send(f":house_abandoned: {ctx.author.mention} запер {member.mention} в подвале!")
+        
+    @command(name="изнасиловать", aliases=["насиловать","rave", "rapish"], description="Изнасилуйте кого-нибудь.")
+    @cooldown(1, 20, BucketType.user)
+    async def slap_member(self, ctx, member:Member):
+        """Ударьте кого-нибудь."""
+        
+        await ctx.send(f":flushed: {ctx.author.mention} изнасиловал {member.mention}!")    
+        
     @command(name="info", aliases=["инфо"], description="Актуальная информация про бота.")
     @cooldown(1, 10, BucketType.user)
     async def info(self, ctx):
@@ -56,7 +71,7 @@ class Fun(Cog):
     async def stable(self, ctx):
         await ctx.bot.change_presence(status=discord.Status.online, activity=discord.Game(f"/help (version {ctx.bot.VERSION})"))
         
-    @command(name="toggle", description="Включение или выключение команд.")
+    @command(name="toggle", aliases=["управление", "вкл", "maintenance"], description="Включение или выключение команд.")
     @commands.is_owner()
     async def toggle(self, ctx, *, command):
         command = self.bot.get_command(command)
@@ -65,14 +80,19 @@ class Fun(Cog):
             await ctx.send(":x: Невозможно найти команду с таким именем.")
 
         elif ctx.command == command:
-            embed = discord.Embed(title="ERROR", description="Эту команду невозможно отключить.", color=0xff0000)
-            await ctx.send(embed=embed)
+            await ctx.send(":x: Невозможно выполнить действие.")
 
         else:
             command.enabled = not command.enabled
-            ternary = "включена" if command.enabled else "выключена"
-            embed = discord.Embed(title="Toggle", description=f"Команда {command.qualified_name} была успешно {ternary}.", color=ctx.author.color)
+            status = "включена" if command.enabled else "выключена"
+            embed = discord.Embed(title="Toggle", description=f"Команда {command.qualified_name} была успешно {status}.", color=ctx.author.color)
             await ctx.send(embed=embed)
+            
+    @command(name="pancakes", aliases=["add", "блины", "addbal"], description="Быстрая выдача блинов участнику.")
+    @commands.has_role("Менеджер конкурсов")
+    async def addbalance(self, ctx, member=Member, amount: Optional[int]):
+        channel = self.bot.get_channel(779412527062843432)
+        await channel.send(f"p!addbal {amount} {member.mention}")
 
 
     @Cog.listener()
