@@ -31,7 +31,7 @@ class Gift(Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name="gift", aliases=["drop","подарок"], description="С неба падает подарок!")
+    @commands.command(name="gift", aliases=["drop","подарок"], description="Команда для сброса подарка.")
     @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
     @cooldown(1, 5, BucketType.user)
@@ -75,7 +75,7 @@ class Gift(Cog):
 
       await ctx.send(f"Подарок забрал {winner.mention}! <@&880169755397464064> скоро выдаст приз.")
 
-    @commands.command(name="epicgift", aliases=["epicdrop","эпикподарок"], description="С неба падает эпический подарок!")
+    @commands.command(name="epicgift", aliases=["epicdrop","эпикподарок"], description="Команда для сброса эпического подарка.")
     @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
     @cooldown(1, 5, BucketType.user)
@@ -119,7 +119,7 @@ class Gift(Cog):
 
       await ctx.send(f"{winner.mention} забрал *эпический* подарок! <@&880169755397464064> скоро выдаст приз.")
 
-    @commands.command(name="mythgift", aliases=["mythdrop","мифподарок"], description="С неба падает мифический подарок!")
+    @commands.command(name="mythgift", aliases=["mythdrop","мифподарок"], description="Команда для сброса мифического подарка.")
     @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
     @cooldown(1, 5, BucketType.user)
@@ -161,7 +161,7 @@ class Gift(Cog):
 
       await ctx.send(f"{winner.mention} забрал **МИФИЧЕСКИЙ** подарок! <@&880169755397464064> скоро выдаст приз.")
 
-    @commands.command(name="legendgift", aliases=["legenddrop","легаподарок","legendarygift","legendarydrop"], description="С неба падает легендарный подарок!")
+    @commands.command(name="legendgift", aliases=["legenddrop","легаподарок","legendarygift","legendarydrop"], description="Команда для сброса легендарного подарка.")
     @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
     @cooldown(1, 5, BucketType.user)
