@@ -28,8 +28,10 @@ class Fun(Cog):
     @cooldown(1, 5, BucketType.user)
     async def slap_member(self, ctx, member:Member, *, reason: Optional[str] = "просто так"):
         """Ударьте кого-нибудь."""
-        
-        await ctx.send(f"{ctx.author.mention} ударил {member.mention} по причине: {reason}.")
+        if member.id == 514069435913469962:
+            await ctx.send("Не так быстро, это мой создатель!")
+        else:
+            await ctx.send(f"{ctx.author.mention} ударил {member.mention} по причине: {reason}.")
 
     @command(name="basement", aliases=["trap","подвал"], description="Посадите кого-нибудь в подвал.")
     @cooldown(1, 20, BucketType.user)
@@ -42,7 +44,10 @@ class Fun(Cog):
     @command(name="изнасиловать", aliases=["насиловать","rave", "rapish"], description="Изнасилуйте кого-нибудь.")
     @cooldown(1, 20, BucketType.user)
     async def rave_member(self, ctx, member:Member):
-        await ctx.send(f":flushed: {ctx.author.mention} изнасиловал {member.mention}!")    
+        if member.id == 514069435913469962:
+            await ctx.send("Не так быстро, это мой создатель!")
+        else:
+            await ctx.send(f":flushed: {ctx.author.mention} изнасиловал {member.mention}!")    
         
     @command(name="info", aliases=["инфо"], description="Актуальная информация про бота.")
     @cooldown(1, 10, BucketType.user)
