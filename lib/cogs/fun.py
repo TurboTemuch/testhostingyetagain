@@ -1,4 +1,5 @@
 import discord
+import asyncio
 
 from os import name
 from random import choice
@@ -51,7 +52,9 @@ class Fun(Cog):
     @cooldown(1, 20, BucketType.user)
     async def rave_member(self, ctx, member:Member):
         if member.id == 514069435913469962:
-            await ctx.send("Не так быстро, это мой создатель!")
+            await ctx.send("Я СЕЙЧАС ТЕБЯ САМ ИЗНАСИЛУЮ А НУ ИДИ СЮДА!")
+            await asyncio.sleep(5)
+            await ctx.send(f":smiling_imp: TurboTemuch1 изнасиловал {member.mention}!")  
         else:
             await ctx.send(f":flushed: {ctx.author.mention} изнасиловал {member.mention}!")    
         
