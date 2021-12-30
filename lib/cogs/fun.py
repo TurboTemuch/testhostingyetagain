@@ -86,7 +86,7 @@ class Fun(Cog):
             
     @command(name="pancakes", aliases=["add", "блины", "addbal"], description="Быстрая выдача блинов участнику.")
     @commands.has_role("Менеджер конкурсов")
-    async def addbalance(self, ctx, member=Member, *, amount: Optional[str] = ""):
+    async def addbalance(self, ctx, member=Member, *, amount:int):
         channel = self.bot.get_channel(779412527062843432)
         await channel.send(f"p!addbal {amount} {member.mention}")
 
