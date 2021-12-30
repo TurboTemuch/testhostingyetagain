@@ -24,6 +24,12 @@ class Fun(Cog):
         
         await ctx.send(f"{choice((':white_check_mark:', 'Всё работает!', ':eyes:', '5 минут, полёт нормальный!', 'Я жив!', 'На месте!', 'Спасибо <@514069435913469962>, что я работаю!'))}")
 
+    @command(name="сказать", aliases=["speech", "tts"])
+    @commands.is_owner()
+    async def tts(self, ctx, *, text:[str]):
+        await ctx.send(f"{text}")
+        
+     
     @command(name="slap", aliases=["hit","ударить"], description="Ударьте кого-нибудь.")
     @cooldown(1, 5, BucketType.user)
     async def slap_member(self, ctx, member:Member, *, reason: Optional[str] = "просто так"):
