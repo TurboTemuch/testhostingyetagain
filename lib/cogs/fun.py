@@ -55,6 +55,25 @@ class Fun(Cog):
     @commands.is_owner()
     async def stable(self, ctx):
         await ctx.bot.change_presence(status=discord.Status.online, activity=discord.Game(f"/help (version {ctx.bot.VERSION})"))
+        
+    @command(name="toggle", description="Включение или выключение команд.")
+    @commands.is_owner()
+    async def toggle(self, ctx, *, command):
+        command = self.client.get_command(command)
+
+        if command is None:
+            await ctx.send(":x: Невозможно найти команду с таким именем.")
+
+        elif ctx.command == command:
+            embed = discord.Embed(title="ERROR", description="Эту команду невозможно отключить.", color=0xff0000)
+            await ctx.send(embed=embed)
+
+        else:
+            command.enabled = not command.enabled
+            ternary = "включена" if command.enabled else "выключена"
+            embed = discord.Embed(title="Toggle", description=f"Команда {command.qualified_name} была успешно {ternary}.", color=0xff00c8)
+            await ctx.send(embed=embed)
+
 
     @Cog.listener()
     async def on_ready(self):
