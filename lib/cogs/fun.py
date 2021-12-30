@@ -33,16 +33,12 @@ class Fun(Cog):
 
     @command(name="basement", aliases=["trap","подвал"], description="Посадите кого-нибудь в подвал.")
     @cooldown(1, 20, BucketType.user)
-    async def slap_member(self, ctx, member:Member):
-        """Ударьте кого-нибудь."""
-        
+    async def trap_member(self, ctx, member:Member):
         await ctx.send(f":house_abandoned: {ctx.author.mention} запер {member.mention} в подвале!")
         
     @command(name="изнасиловать", aliases=["насиловать","rave", "rapish"], description="Изнасилуйте кого-нибудь.")
     @cooldown(1, 20, BucketType.user)
-    async def slap_member(self, ctx, member:Member):
-        """Ударьте кого-нибудь."""
-        
+    async def rave_member(self, ctx, member:Member):
         await ctx.send(f":flushed: {ctx.author.mention} изнасиловал {member.mention}!")    
         
     @command(name="info", aliases=["инфо"], description="Актуальная информация про бота.")
@@ -90,7 +86,7 @@ class Fun(Cog):
             
     @command(name="pancakes", aliases=["add", "блины", "addbal"], description="Быстрая выдача блинов участнику.")
     @commands.has_role("Менеджер конкурсов")
-    async def addbalance(self, ctx, member=Member, *, amount: Optional[int]):
+    async def addbalance(self, ctx, member=Member, *, amount: Optional[str]):
         channel = self.bot.get_channel(779412527062843432)
         await channel.send(f"p!addbal {amount} {member.mention}")
 
