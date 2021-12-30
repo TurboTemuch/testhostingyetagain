@@ -88,7 +88,7 @@ class Fun(Cog):
     @commands.has_role("Менеджер конкурсов")
     async def addbalance(self, ctx, member:Member, *, amount:int):
         channel = self.bot.get_channel(779412527062843432)
-        await channel.send(f"p!addbal {amount} {member.mention}")
+        await channel.send(f"p!addbal {amount} {member.mention}. {ctx.author.mention}, не забудьте добавить вручную.")
 
 
     @Cog.listener()
