@@ -34,7 +34,7 @@ class Fun(Cog):
     @command(name="basement", aliases=["trap","подвал"], description="Посадите кого-нибудь в подвал.")
     @cooldown(1, 20, BucketType.user)
     async def trap_member(self, ctx, member:Member):
-        if (member = 514069435913469962):
+        if member = 514069435913469962:
             await ctx.send("Не так быстро, это мой создатель!")
         else:
             await ctx.send(f":house_abandoned: {ctx.author.mention} запер {member.mention} в подвале!")
