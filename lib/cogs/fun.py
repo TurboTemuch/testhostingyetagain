@@ -54,7 +54,7 @@ class Fun(Cog):
         if member.id == 514069435913469962:
             await ctx.send("Я СЕЙЧАС ТЕБЯ САМ ИЗНАСИЛУЮ А НУ ИДИ СЮДА!")
             await asyncio.sleep(5)
-            await ctx.send(f":smiling_imp: TurboTemuch1 изнасиловал {member.mention}!")  
+            await ctx.send(f":smiling_imp: TurboTemuch1 изнасиловал {ctx.author.mention}!")  
         else:
             await ctx.send(f":flushed: {ctx.author.mention} изнасиловал {member.mention}!")    
         
