@@ -71,7 +71,7 @@ class Fun(Cog):
         else:
             command.enabled = not command.enabled
             ternary = "включена" if command.enabled else "выключена"
-            embed = discord.Embed(title="Toggle", description=f"Команда {command.qualified_name} была успешно {ternary}.", color=0xff00c8)
+            embed = discord.Embed(title="Toggle", description=f"Команда {command.qualified_name} была успешно {ternary}.", color=ctx.author.color)
             await ctx.send(embed=embed)
 
 
