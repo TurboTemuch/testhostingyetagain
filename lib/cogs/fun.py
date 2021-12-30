@@ -33,12 +33,12 @@ class Fun(Cog):
      
     @command(name="slap", aliases=["hit","ударить"], description="Ударьте кого-нибудь.")
     @cooldown(1, 5, BucketType.user)
-    async def slap_member(self, ctx, member:Member, *, reason: Optional[str] = "просто так"):
+    async def slap_member(self, ctx, member:Member, *, words: Optional[str] = "просто так"):
         """Ударьте кого-нибудь."""
         if member.id == 514069435913469962:
             await ctx.send("Не так быстро, это мой создатель!")
         else:
-            await ctx.send(f"{ctx.author.mention} ударил {member.mention} по причине: {reason}.")
+            await ctx.send(f"{ctx.author.mention} ударил {member.mention} со словами: {words}")
 
     @command(name="basement", aliases=["trap","подвал"], description="Посадите кого-нибудь в подвал.")
     @cooldown(1, 20, BucketType.user)
