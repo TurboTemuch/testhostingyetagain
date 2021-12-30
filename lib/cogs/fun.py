@@ -26,9 +26,9 @@ class Fun(Cog):
 
     @command(name="сказать", aliases=["speech", "tts"])
     @commands.is_owner()
-    async def tts(self, ctx, *, text:[str]):
+    async def tts(self, ctx, *, text:str):
         await ctx.send(f"{text}")
-        
+        await ctx.message.delete()
      
     @command(name="slap", aliases=["hit","ударить"], description="Ударьте кого-нибудь.")
     @cooldown(1, 5, BucketType.user)
@@ -75,11 +75,13 @@ class Fun(Cog):
         """Техническая команда для подготовки к обновлению."""
         
         await ctx.bot.change_presence(status=discord.Status.idle, activity=discord.Game("ОБНОВЛЕНИЕ"))
+        await ctx.message.delete()
                 
     @command(name="stable", description="Техническая команда для завершения обновления.")
     @commands.is_owner()
     async def stable(self, ctx):
         await ctx.bot.change_presence(status=discord.Status.online, activity=discord.Game(f"/help (version {ctx.bot.VERSION})"))
+        await ctx.message.delete()
         
     @command(name="toggle", aliases=["управление", "вкл", "maintenance"], description="Включение или выключение команд.")
     @commands.is_owner()
