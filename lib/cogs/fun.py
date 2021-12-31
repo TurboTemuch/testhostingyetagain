@@ -41,7 +41,7 @@ class Fun(Cog):
         elif member.id == 793943860044103721:
             await ctx.send("А вот и нет.")
             await asyncio.sleep(2)
-            await ctx.send(f":smiling_imp: TurboTemuch1 изнасиловал {ctx.author.mention}!")
+            await ctx.send(f":smiling_imp: TurboTemuch1 ударил {ctx.author.mention}!")
         elif member.id == ctx.author.id:
             await ctx.send(":x: Невозможно выполнить действие.")
         else:
