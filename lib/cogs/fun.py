@@ -17,8 +17,8 @@ from discord.ext.commands import command, cooldown
 class Fun(Cog):
     def __init__(self, bot):
         self.bot = bot
-
-    @command(name="Связь", aliases=["Бот", "связь", "бот"], description="Проверка связи с ботом.")
+        
+    @command(name="Связь", aliases=["Бот", "связь", "бот", "ping", "bot", "Bot"], description="Проверка связи с ботом.")
     @cooldown(1, 10, BucketType.user)
     async def some_amazing_command(self, ctx):
         """Проверка связи с ботом."""
@@ -31,20 +31,32 @@ class Fun(Cog):
         await ctx.send(f"{text}")
         await ctx.message.delete()
      
-    @command(name="slap", aliases=["hit","ударить"], description="Ударьте кого-нибудь.")
+    @command(name="ударить", aliases=["hit","slap"], description="Ударьте кого-нибудь.")
     @cooldown(1, 5, BucketType.user)
     async def slap_member(self, ctx, member:Member, *, words: Optional[str] = "просто так"):
         """Ударьте кого-нибудь."""
         if member.id == 514069435913469962:
             await ctx.send("Не так быстро, это мой создатель!")
+        elif member.id == 793943860044103721:
+            await ctx.send("А вот и нет.")
+            await asyncio.sleep(2)
+            await ctx.send(f":unoreversecard: TurboTemuch1 изнасиловал {ctx.author.mention}!")
+        elif member.id == ctx.author.id:
+            await ctx.send(":x: Невозможно выполнить действие.")
         else:
             await ctx.send(f"{ctx.author.mention} ударил {member.mention} со словами: {words}")
 
-    @command(name="basement", aliases=["trap","подвал"], description="Посадите кого-нибудь в подвал.")
+    @command(name="подвал", aliases=["trap","basement"], description="Посадите кого-нибудь в подвал.")
     @cooldown(1, 20, BucketType.user)
     async def trap_member(self, ctx, member:Member):
         if member.id == 514069435913469962:
             await ctx.send("Не так быстро, это мой создатель!")
+        elif member.id == 793943860044103721:
+            await ctx.send("А вот и нет.")
+            await asyncio.sleep(2)
+            await ctx.send(f":unoreversecard: TurboTemuch1 запер {ctx.author.mention} в подвале!")
+        elif member.id == ctx.author.id:
+            await ctx.send(":x: Невозможно выполнить действие.")
         else:
             await ctx.send(f":house_abandoned: {ctx.author.mention} запер {member.mention} в подвале!")
         
@@ -53,12 +65,18 @@ class Fun(Cog):
     async def rave_member(self, ctx, member:Member):
         if member.id == 514069435913469962:
             await ctx.send("Я СЕЙЧАС ТЕБЯ САМ ИЗНАСИЛУЮ А НУ ИДИ СЮДА!")
-            await asyncio.sleep(5)
-            await ctx.send(f":smiling_imp: TurboTemuch1 изнасиловал {ctx.author.mention}!")  
+            await asyncio.sleep(2)
+            await ctx.send(f":smiling_imp: TurboTemuch1 изнасиловал {ctx.author.mention}!")
+        elif member.id == 793943860044103721:
+            await ctx.send("А вот и нет.")
+            await asyncio.sleep(2)
+            await ctx.send(f":unoreversecard: TurboTemuch1 изнасиловал {ctx.author.mention}!")
+        elif member.id == ctx.author.id:
+            await ctx.send(":x: Невозможно выполнить действие.")
         else:
             await ctx.send(f":flushed: {ctx.author.mention} изнасиловал {member.mention}!")    
         
-    @command(name="info", aliases=["инфо"], description="Актуальная информация про бота.")
+    @command(name="инфо", aliases=["info"], description="Актуальная информация про бота.")
     @cooldown(1, 10, BucketType.user)
     async def info(self, ctx):
         """Актуальная информация про бота."""
@@ -86,7 +104,7 @@ class Fun(Cog):
         await ctx.bot.change_presence(status=discord.Status.online, activity=discord.Game(f"/help (version {ctx.bot.VERSION})"))
         await ctx.message.delete()
         
-    @command(name="toggle", aliases=["управление", "вкл", "maintenance"], description="Включение или выключение команд.")
+    @command(name="управление", aliases=["toggle", "вкл", "maintenance"], description="Включение или выключение команд.")
     @commands.is_owner()
     async def toggle(self, ctx, *, command):
         command = self.bot.get_command(command)
@@ -103,7 +121,7 @@ class Fun(Cog):
             embed = discord.Embed(title="Toggle", description=f"Команда {command.qualified_name} была успешно {status}.", color=ctx.author.color)
             await ctx.send(embed=embed)
             
-    @command(name="pancakes", aliases=["add", "блины", "addbal"], description="Быстрая выдача блинов участнику.")
+    @command(name="блины", aliases=["add", "pancakes", "addbal"], description="Быстрая выдача блинов участнику.")
     @commands.has_role("Менеджер конкурсов")
     async def addbalance(self, ctx, member:Member, *, amount:int):
         channel = self.bot.get_channel(779412527062843432)
