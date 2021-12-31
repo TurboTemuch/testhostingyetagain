@@ -31,7 +31,7 @@ class Giveaway(Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name="giveaway", aliases=["раздача","gw","конкурс","к"], description="Команда для запуска конкурса.")
+    @commands.command(name="конкурс", aliases=["раздача","gw","giveaway","к"], description="Команда для запуска конкурса.")
     @commands.has_role("Менеджер конкурсов")
     @cooldown(1, 10, BucketType.user)
     async def giveaway(self, ctx):
@@ -100,7 +100,7 @@ class Giveaway(Cog):
       await channel.send(f"У нас есть победитель! {winner.mention} выиграл: {prize}! *<@&790531068746006548> скоро выдаст его.*")
 
 
-    @commands.command(name="reroll", aliases=["перерозыгрыш","реролл"], description="Команда для выбора нового победителя конкурса.")
+    @commands.command(name="перерозыгрыш", aliases=["reroll","реролл"], description="Команда для выбора нового победителя конкурса.")
     @commands.has_role("Менеджер конкурсов")
     @cooldown(1, 10, BucketType.user)
     async def reroll(self, ctx, msgid : Optional[int]):
