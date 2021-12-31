@@ -35,7 +35,7 @@ class Giveaway(Cog):
     @commands.has_role("Менеджер конкурсов")
     @cooldown(1, 10, BucketType.user)
     async def giveaway(self, ctx):
-      """Запускает новый конкурс."""
+      """Команда для запуска конкурса."""
       
       await ctx.send("Давайте начнём!")
 
@@ -104,7 +104,7 @@ class Giveaway(Cog):
     @commands.has_role("Менеджер конкурсов")
     @cooldown(1, 10, BucketType.user)
     async def reroll(self, ctx, msgid : Optional[int]):
-      """Выбирает нового победителя конкурса."""
+      """Команда для выбора нового победителя конкурса."""
       
       try:
         global new_msg
