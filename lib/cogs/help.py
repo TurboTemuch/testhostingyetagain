@@ -56,10 +56,10 @@ class Help(Cog):
         embed.add_field(name="Описание команды", value=command.help)
         await ctx.send(embed=embed)
     
-    @command(name="help", aliases=["хелп","помощь"], description="Выводит это сообщение.")
+    @command(name="хелп", aliases=["help","помощь"], description="Интерактивная команда помощи.")
     @cooldown(1, 10, BucketType.user)
     async def show_help(self, ctx, cmd: Optional[str]):
-        """Выводит это сообщение."""
+        """Интерактивная команда помощи."""
         if cmd is None:
             menu = MenuPages(source=HelpMenu(ctx, list(self.bot.commands)), delete_message_after=True, timeout=60.0)
 
