@@ -205,6 +205,48 @@ class Gift(Cog):
 
       await ctx.send(f"{winner.mention} забрал :crown: **ЛЕГЕНДАРНЫЙ**:crown:  подарок! <@&880169755397464064> скоро выдаст приз.")
       
+    @commands.command(name="экзаподарок", aliases=["exoticdrop","exoticgift"], description="Команда для сброса экзотического подарка.")
+    @commands.has_role("Главный Санта")
+    @has_permissions(kick_members=True, administrator=True)
+    @cooldown(1, 5, BucketType.user)
+    async def mythgift(self, ctx, *, time: Optional[str] = "60s" ):
+      """Команда для сброса экзотического подарка."""
+
+      def check(m):
+        return m.author == ctx.author and m.channel == ctx.channel
+
+      timeout = convert(time)
+      if timeout == -1:
+        await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
+        return
+      elif timeout == -2:
+        await ctx.send(f"Некорректно введено время. Введите целое число.")
+        return
+  
+      prize = ":gift:"
+
+      embed = discord.Embed(title = "Появился **ЭКЗОТИЧЕСКИЙ** подарок!", description = f"{prize}", color = 0x24FF00)
+
+      embed.set_footer(text = f"Открывается через {time}!")
+
+      my_msg = await ctx.send(embed = embed)
+
+      await my_msg.add_reaction("🎁")
+
+      await ctx.message.delete()
+      
+      await asyncio.sleep(timeout)
+
+      cache_msg = discord.utils.get(self.bot.cached_messages, id=my_msg.id) #or client.messages depending on your variable
+      print(cache_msg.reactions)
+      
+      users = await cache_msg.reactions[0].users().flatten()
+      users.pop(users.index(self.bot.user))
+
+      winner = random.choice(users)
+
+      await ctx.send(f"{winner.mention} забрал **ЭКЗОТИЧЕСКИЙ** подарок! <@&880169755397464064> скоро выдаст приз.")
+      
     @commands.command(name="incoming", aliases=["dropsoon"], description="Объявление о скором появлении подарков.")
     @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
@@ -213,6 +255,16 @@ class Gift(Cog):
       """Объявление о скором появлении подарков."""
       await ctx.message.delete()
       embed = discord.Embed(title = "Cкоро будет сброшен подарок!", color = 0xFFC600)
+      await ctx.send(embed = embed)
+      
+    @commands.command(name="exoticalincoming", aliases=["exoticaldropsoon"], description="Объявление о скором появлении экзотического подарка.")
+    @commands.has_role("Главный Санта")
+    @has_permissions(kick_members=True, administrator=True)
+    @cooldown(1, 30, BucketType.user)
+    async def incoming(self, ctx):
+      """Объявление о скором появлении подарков."""
+      await ctx.message.delete()
+      embed = discord.Embed(title = "Cкоро будет сброшен **ЭКЗОТИЧЕСКИЙ** подарок!", color = 0x24FF00)
       await ctx.send(embed = embed)
       
     @Cog.listener()
