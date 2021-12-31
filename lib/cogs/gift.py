@@ -36,7 +36,7 @@ class Gift(Cog):
     @has_permissions(kick_members=True, administrator=True)
     @cooldown(1, 5, BucketType.user)
     async def gift(self, ctx, *, time: Optional[str] = "30s" ):
-      """С неба падает подарок!"""
+      """Команда для сброса подарка."""
   
       def check(m):
         return m.author == ctx.author and m.channel == ctx.channel
@@ -80,7 +80,7 @@ class Gift(Cog):
     @has_permissions(kick_members=True, administrator=True)
     @cooldown(1, 5, BucketType.user)
     async def epicgift(self, ctx, *, time: Optional[str] = "45s" ):
-      """С неба падает эпический подарок!"""
+      """Команда для сброса эпического подарка."""
         
       def check(m):
         return m.author == ctx.author and m.channel == ctx.channel
@@ -124,7 +124,7 @@ class Gift(Cog):
     @has_permissions(kick_members=True, administrator=True)
     @cooldown(1, 5, BucketType.user)
     async def mythgift(self, ctx, *, time: Optional[str] = "60s" ):
-      """С неба падает мифический подарок!"""
+      """Команда для сброса мифического подарка."""
 
       def check(m):
         return m.author == ctx.author and m.channel == ctx.channel
@@ -166,7 +166,7 @@ class Gift(Cog):
     @has_permissions(kick_members=True, administrator=True)
     @cooldown(1, 5, BucketType.user)
     async def legendarygift(self, ctx, *, time: Optional[str] = "90s" ):
-      """С неба падает легендарный подарок!"""
+      """Команда для сброса легендарного подарка."""
         
       def check(m):
         return m.author == ctx.author and m.channel == ctx.channel
@@ -210,7 +210,7 @@ class Gift(Cog):
     @has_permissions(kick_members=True, administrator=True)
     @cooldown(1, 30, BucketType.user)
     async def incoming(self, ctx):
-      """Объявляет о скором появлении подарков."""
+      """Объявление о скором появлении подарков."""
       await ctx.message.delete()
       embed = discord.Embed(title = "Cкоро будет сброшен подарок!", color = 0xFFC600)
       await ctx.send(embed = embed)
