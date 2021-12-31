@@ -105,7 +105,7 @@ class Fun(Cog):
     @commands.is_owner()
     async def stable(self, ctx):
         """Техническая команда для завершения обновления."""
-        await ctx.bot.change_presence(status=discord.Status.online, activity=discord.Game(f"/help (version {ctx.bot.VERSION})"))
+        await ctx.bot.change_presence(status=discord.Status.online, activity=discord.Game(f";help (version {ctx.bot.VERSION})"))
         await ctx.message.delete()
         
     @command(name="управление", aliases=["toggle", "вкл", "maintenance"], description="Включение или выключение команд.")
