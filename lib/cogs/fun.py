@@ -20,14 +20,15 @@ class Fun(Cog):
         
     @command(name="Связь", aliases=["Бот", "связь", "бот", "ping", "bot", "Bot"], description="Проверка связи с ботом.")
     @cooldown(1, 10, BucketType.user)
-    async def some_amazing_command(self, ctx):
+    async def ping_test(self, ctx):
         """Проверка связи с ботом."""
         
         await ctx.send(f"{choice((':white_check_mark:', 'Всё работает!', ':eyes:', '5 минут, полёт нормальный!', 'Я жив!', 'На месте!', 'Спасибо <@514069435913469962>, что я работаю!'))}")
 
-    @command(name="сказать", aliases=["speech", "tts"])
+    @command(name="сказать", aliases=["speech", "tts"], description="Скажите что-нибудь от лица бота.")
     @commands.is_owner()
     async def tts(self, ctx, *, text:str):
+        """Скажите что-нибудь от лица бота."""
         await ctx.send(f"{text}")
         await ctx.message.delete()
      
@@ -49,6 +50,7 @@ class Fun(Cog):
     @command(name="подвал", aliases=["trap","basement"], description="Посадите кого-нибудь в подвал.")
     @cooldown(1, 20, BucketType.user)
     async def trap_member(self, ctx, member:Member):
+        """Посадите кого-нибудь в подвал."""
         if member.id == 514069435913469962:
             await ctx.send("Не так быстро, это мой создатель!")
         elif member.id == 793943860044103721:
@@ -63,6 +65,7 @@ class Fun(Cog):
     @command(name="изнасиловать", aliases=["насиловать","rave", "rapish"], description="Изнасилуйте кого-нибудь.")
     @cooldown(1, 20, BucketType.user)
     async def rave_member(self, ctx, member:Member):
+        """Изнасилуйте кого-нибудь."""
         if member.id == 514069435913469962:
             await ctx.send("Я СЕЙЧАС ТЕБЯ САМ ИЗНАСИЛУЮ А НУ ИДИ СЮДА!")
             await asyncio.sleep(2)
@@ -101,12 +104,14 @@ class Fun(Cog):
     @command(name="stable", description="Техническая команда для завершения обновления.")
     @commands.is_owner()
     async def stable(self, ctx):
+        """Техническая команда для завершения обновления."""
         await ctx.bot.change_presence(status=discord.Status.online, activity=discord.Game(f"/help (version {ctx.bot.VERSION})"))
         await ctx.message.delete()
         
     @command(name="управление", aliases=["toggle", "вкл", "maintenance"], description="Включение или выключение команд.")
     @commands.is_owner()
     async def toggle(self, ctx, *, command):
+        """Включение или выключение команд."""
         command = self.bot.get_command(command)
 
         if command is None:
@@ -124,6 +129,7 @@ class Fun(Cog):
     @command(name="блины", aliases=["add", "pancakes", "addbal"], description="Быстрая выдача блинов участнику.")
     @commands.has_role("Менеджер конкурсов")
     async def addbalance(self, ctx, member:Member, *, amount:int):
+        """Быстрая выдача блинов участнику."""
         channel = self.bot.get_channel(779412527062843432)
         await channel.send(f"p!addbal {amount} {member.mention}. {ctx.author.mention}, не забудьте добавить вручную.")
 
