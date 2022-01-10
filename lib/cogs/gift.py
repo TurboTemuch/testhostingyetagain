@@ -38,7 +38,7 @@ class Gift(Cog):
     async def gift(self, ctx):
 #    async def gift(self, ctx, *, time: Optional[str] = "30s" ):
       """Команда для сброса подарка."""
-        await ctx.send(":no-entry: Эта команда была отключена.")
+      await ctx.send(":no-entry: Эта команда была отключена.")
 #       def check(m):
 #         return m.author == ctx.author and m.channel == ctx.channel
 
@@ -83,7 +83,7 @@ class Gift(Cog):
     async def epicgift(self, ctx):
 #    async def epicgift(self, ctx, *, time: Optional[str] = "45s" ):
       """Команда для сброса эпического подарка."""
-        await ctx.send(":no-entry: Эта команда была отключена.")    
+      await ctx.send(":no-entry: Эта команда была отключена.")    
 #       def check(m):
 #         return m.author == ctx.author and m.channel == ctx.channel
 
@@ -128,7 +128,7 @@ class Gift(Cog):
     async def mythgift(self, ctx):
 #    async def mythgift(self, ctx, *, time: Optional[str] = "60s" ):
       """Команда для сброса мифического подарка."""
-        await ctx.send(":no-entry: Эта команда была отключена.")
+      await ctx.send(":no-entry: Эта команда была отключена.")
 #       def check(m):
 #         return m.author == ctx.author and m.channel == ctx.channel
 
@@ -171,7 +171,7 @@ class Gift(Cog):
     async def legendarygift(self, ctx):
 #    async def legendarygift(self, ctx, *, time: Optional[str] = "90s" ):
       """Команда для сброса легендарного подарка."""
-        await ctx.send(":no-entry: Эта команда была отключена.")
+      await ctx.send(":no-entry: Эта команда была отключена.")
 #       def check(m):
 #         return m.author == ctx.author and m.channel == ctx.channel
 
@@ -216,7 +216,7 @@ class Gift(Cog):
     async def mythgift(self, ctx):
 #    async def mythgift(self, ctx, *, time: Optional[str] = "60s" ):
       """Команда для сброса экзотического подарка."""
-        await ctx.send(":no-entry: Эта команда была отключена.")
+      await ctx.send(":no-entry: Эта команда была отключена.")
 #       def check(m):
 #         return m.author == ctx.author and m.channel == ctx.channel
 
@@ -269,7 +269,7 @@ class Gift(Cog):
     @cooldown(1, 30, BucketType.user)
     async def incoming(self, ctx):
       """Объявление о скором появлении подарков."""
-        await ctx.send(":no-entry: Эта команда была отключена.")
+      await ctx.send(":no-entry: Эта команда была отключена.")
 #       await ctx.message.delete()
 #       embed = discord.Embed(title = "Cкоро будет сброшен **ЭКЗОТИЧЕСКИЙ** подарок!", color = 0x24FF00)
 #       await ctx.send(embed = embed)
