@@ -34,7 +34,7 @@ class Fun(Cog):
      
     @command(name="ударить", aliases=["hit","slap"], description="Ударьте кого-нибудь.")
     @cooldown(1, 5, BucketType.user)
-    async def slap_member(self, ctx, member:Member, *, words: Optional[str] = "просто так"):
+    async def slap_member(self, ctx, member:Member, *, words: Optional[str] = ""):
         """Ударьте кого-нибудь."""
         if member.id == 514069435913469962:
             await ctx.send("Не так быстро, это мой создатель!")
@@ -49,7 +49,7 @@ class Fun(Cog):
 
     @command(name="подвал", aliases=["trap","basement"], description="Посадите кого-нибудь в подвал.")
     @cooldown(1, 20, BucketType.user)
-    async def trap_member(self, ctx, member:Member):
+    async def trap_member(self, ctx, member:Member, *, words: Optional[str] = ""):
         """Посадите кого-нибудь в подвал."""
         if member.id == 514069435913469962:
             await ctx.send("Не так быстро, это мой создатель!")
@@ -60,11 +60,11 @@ class Fun(Cog):
         elif member.id == ctx.author.id:
             await ctx.send(":x: Невозможно выполнить действие.")
         else:
-            await ctx.send(f":house_abandoned: {ctx.author.mention} запер {member.mention} в подвале!")
+            await ctx.send(f":house_abandoned: {ctx.author.mention} запер {member.mention} в подвале, при этом сказав: {words}")
         
     @command(name="изнасиловать", aliases=["насиловать","rave", "rapish"], description="Изнасилуйте кого-нибудь.")
     @cooldown(1, 20, BucketType.user)
-    async def rave_member(self, ctx, member:Member):
+    async def rave_member(self, ctx, member:Member, *, words: Optional[str] = ""):
         """Изнасилуйте кого-нибудь."""
         if member.id == 514069435913469962:
             await ctx.send("Я СЕЙЧАС ТЕБЯ САМ ИЗНАСИЛУЮ А НУ ИДИ СЮДА!")
@@ -77,7 +77,7 @@ class Fun(Cog):
         elif member.id == ctx.author.id:
             await ctx.send(":x: Невозможно выполнить действие.")
         else:
-            await ctx.send(f":flushed: {ctx.author.mention} изнасиловал {member.mention}!")    
+            await ctx.send(f":flushed: {ctx.author.mention} изнасиловал {member.mention}, при этом сказав: {words}")    
         
     @command(name="инфо", aliases=["info"], description="Актуальная информация про бота.")
     @cooldown(1, 10, BucketType.user)
