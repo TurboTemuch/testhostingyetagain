@@ -35,7 +35,8 @@ class Gift(Cog):
     @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
     @cooldown(1, 5, BucketType.user)
-    async def gift(self, ctx) #, *, time: Optional[str] = "30s" ):
+    async def gift(self, ctx):
+#    async def gift(self, ctx, *, time: Optional[str] = "30s" ):
       """Команда для сброса подарка."""
         await ctx.send(":no-entry: Эта команда была отключена.")
 #       def check(m):
@@ -79,7 +80,8 @@ class Gift(Cog):
     @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
     @cooldown(1, 5, BucketType.user)
-    async def epicgift(self, ctx) #, *, time: Optional[str] = "45s" ):
+    async def epicgift(self, ctx):
+#    async def epicgift(self, ctx, *, time: Optional[str] = "45s" ):
       """Команда для сброса эпического подарка."""
         await ctx.send(":no-entry: Эта команда была отключена.")    
 #       def check(m):
@@ -123,7 +125,8 @@ class Gift(Cog):
     @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
     @cooldown(1, 5, BucketType.user)
-    async def mythgift(self, ctx) #, *, time: Optional[str] = "60s" ):
+    async def mythgift(self, ctx):
+#    async def mythgift(self, ctx, *, time: Optional[str] = "60s" ):
       """Команда для сброса мифического подарка."""
         await ctx.send(":no-entry: Эта команда была отключена.")
 #       def check(m):
@@ -165,7 +168,8 @@ class Gift(Cog):
     @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
     @cooldown(1, 5, BucketType.user)
-    async def legendarygift(self, ctx) #, *, time: Optional[str] = "90s" ):
+    async def legendarygift(self, ctx):
+#    async def legendarygift(self, ctx, *, time: Optional[str] = "90s" ):
       """Команда для сброса легендарного подарка."""
         await ctx.send(":no-entry: Эта команда была отключена.")
 #       def check(m):
@@ -209,7 +213,8 @@ class Gift(Cog):
     @commands.has_role("Главный Санта")
     @has_permissions(kick_members=True, administrator=True)
     @cooldown(1, 5, BucketType.user)
-    async def mythgift(self, ctx) #, *, time: Optional[str] = "60s" ):
+    async def mythgift(self, ctx):
+#    async def mythgift(self, ctx, *, time: Optional[str] = "60s" ):
       """Команда для сброса экзотического подарка."""
         await ctx.send(":no-entry: Эта команда была отключена.")
 #       def check(m):
