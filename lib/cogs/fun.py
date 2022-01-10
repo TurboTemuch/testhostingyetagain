@@ -62,7 +62,7 @@ class Fun(Cog):
         else:
             await ctx.send(f":house_abandoned: {ctx.author.mention} запер {member.mention} в подвале, при этом сказав: {words}")
         
-    @command(name="изнасиловать", aliases=["насиловать","rave", "rapish"], description="Изнасилуйте кого-нибудь.")
+    @command(name="изнасиловать", aliases=["насиловать","rape", "rapish"], description="Изнасилуйте кого-нибудь.")
     @cooldown(1, 20, BucketType.user)
     async def rave_member(self, ctx, member:Member, *, words: Optional[str] = ""):
         """Изнасилуйте кого-нибудь."""
