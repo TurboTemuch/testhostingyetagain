@@ -144,7 +144,7 @@ class Fun(Cog):
     async def kick_command_error(self, ctx, exc):
         if isinstance(exc, CheckFailure):
             await ctx.send("Недостаточно прав для выполнения операции.")
-	else:
+        else:
             await ctx.send(":x: Во время выполнения операции произошла неизвестная ошибка.")
     
 
