@@ -132,19 +132,18 @@ class Fun(Cog):
         """Быстрая выдача блинов участнику."""
         channel = self.bot.get_channel(779412527062843432)
         await channel.send(f"p!addbal {amount} {member.mention}. {ctx.author.mention}, не забудьте добавить вручную.")
-
+	
     @command(name="кик", aliases=["kick", "выгнать"], description="Исключает пользователя с сервера."
     @commands.has_permissions(kick_members)
-    async def addbalance(self, ctx, member:Member, *, amount:int):
-    #async def kickcmd(self, ctx, targets: Greedy[Member], *, reason: Optional[str]="Причина не указана."):
+    async def kickcmd(self, ctx, targets: Greedy[Member], *, reason: Optional[str]="Причина не указана."):
 	"""Исключает пользователя с сервера."""
         await self.kick_members(ctx.message, targets, reason)
         await ctx.send("Действие выполнено.")
-             
+    
     @kickcmd.error
     async def kick_command_error(self, ctx, exc):
-		if isinstance(exc, CheckFailure):
-			await ctx.send("Недостаточно прав для выполнения операции.")
+	if isinstance(exc, CheckFailure):
+	    await ctx.send("Недостаточно прав для выполнения операции.")
         else:
             await ctx.send(":x: Во время выполнения операции произошла неизвестная ошибка.")
     
