@@ -137,7 +137,7 @@ class Fun(Cog):
     @commands.has_permissions(kick_members=True)
     async def kickcmd(self, ctx, targets: Greedy[Member], *, reason: Optional[str]="Причина не указана."):
         """Исключает пользователя с сервера."""
-        await self.kick_members(ctx.message, targets, reason)
+        await targets.kick(reason=reason)
         await ctx.send("Действие выполнено.")
     
     @kickcmd.error
