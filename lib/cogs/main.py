@@ -135,7 +135,7 @@ class Fun(Cog):
 
     @command(name="кик", aliases=["kick", "выгнать"], description="Исключает пользователя с сервера."
     @commands.has_permissions(kick_members)
-    async def kickfunc(self, ctx, targets: Greedy[Member], reason=Optional[str]=""):
+    async def kickfunc(self, ctx, targets: Greedy[Member], reason: Optional[str]=""):
         """Исключает пользователя с сервера."""
         await self.kick_members(ctx.message, targets, reason)
         await ctx.send("Действие выполнено.")
