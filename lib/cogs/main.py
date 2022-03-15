@@ -133,7 +133,7 @@ class Fun(Cog):
         channel = self.bot.get_channel(779412527062843432)
         await channel.send(f"p!addbal {amount} {member.mention}. {ctx.author.mention}, не забудьте добавить вручную.")
 	
-    @command(name="кик", aliases=["kick", "выгнать"], description="Исключает пользователя с сервера."
+    @command(name="кик", aliases=["kick", "выгнать"], description="Исключает пользователя с сервера.")
     @commands.has_permissions(kick_members)
     async def kickcmd(self, ctx, targets: Greedy[Member], *, reason: Optional[str]="Причина не указана."):
 	"""Исключает пользователя с сервера."""
