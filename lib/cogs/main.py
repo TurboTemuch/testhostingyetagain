@@ -146,6 +146,13 @@ class Fun(Cog):
             await ctx.send("Недостаточно прав для выполнения операции.")
         else:
             await ctx.send(":x: Во время выполнения операции произошла неизвестная ошибка.")
+	
+    @command(name="бан", aliases=["ban"], description="Банит пользователя.")
+    @commands.has_permissions(ban_members=True)
+    async def kickcmd(self, ctx, targets: Member, *, reason: Optional[str]="Причина не указана.", time: Optional[int] = 0):
+        """Банит пользователя."""
+        await targets.ban(reason=reason, delete_message_days=time)
+        await ctx.send("Действие выполнено.")
     
 
     @Cog.listener()
