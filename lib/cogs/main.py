@@ -10,8 +10,8 @@ from discord import Intents
 from discord import Member
 from discord import Embed, File
 from discord.ext import commands
-from discord.ext.commands import has_permissions
-from discord.ext.commands import Cog, BucketType, Greedy
+from discord.ext.commands import command, has_permissions
+from discord.ext.commands import Cog, BucketType, Greedy, CheckFailure
 from discord.ext.commands import command, cooldown
 
 class Fun(Cog):
@@ -134,7 +134,7 @@ class Fun(Cog):
         await channel.send(f"p!addbal {amount} {member.mention}. {ctx.author.mention}, не забудьте добавить вручную.")
 	
     @command(name="кик", aliases=["kick", "выгнать"], description="Исключает пользователя с сервера.")
-    @has_permissions(kick_members=True)
+    @commands.has_permissions(kick_members=True)
     async def kickcmd(self, ctx, targets: Greedy[Member], *, reason: Optional[str]="Причина не указана."):
         """Исключает пользователя с сервера."""
         await self.kick_members(ctx.message, targets, reason)
