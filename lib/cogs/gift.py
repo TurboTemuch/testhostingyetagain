@@ -39,16 +39,16 @@ class Gift(Cog):
     async def gift(self, ctx, *, time: Optional[str] = "30s" ):
         """Команда для сброса подарка."""
 #      await ctx.send(":no-entry: Эта команда была отключена.")
-#         def check(m):
-#             return m.author == ctx.author and m.channel == ctx.channel
+        def check(m):
+            return m.author == ctx.author and m.channel == ctx.channel
 
-#         timeout = convert(time)
-#         if timeout == -1:
-#             await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
-#             return
-#         elif timeout == -2:
-#             await ctx.send(f"Некорректно введено время. Введите целое число.")
-#         return
+        timeout = convert(time)
+        if timeout == -1:
+            await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
+            return
+        elif timeout == -2:
+            await ctx.send(f"Некорректно введено время. Введите целое число.")
+        return
 
         prize = ":gift:"
 #         await ctx.send(f"Розыгрыш будет проведён в {channel.mention} и итоги будут опубликованы через {answers[1]} секунд!")
@@ -82,16 +82,16 @@ class Gift(Cog):
     async def epicgift(self, ctx, *, time: Optional[str] = "45s" ):
         """Команда для сброса эпического подарка."""
 #      await ctx.send(":no-entry: Эта команда была отключена.")    
-#         def check(m):
-#             return m.author == ctx.author and m.channel == ctx.channel
+        def check(m):
+            return m.author == ctx.author and m.channel == ctx.channel
 
-#         timeout = convert(time)
-#         if timeout == -1:
-#             await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
-#             return
-#         elif timeout == -2:
-#             await ctx.send(f"Некорректно введено время. Введите целое число.")
-#             return
+        timeout = convert(time)
+        if timeout == -1:
+            await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
+            return
+        elif timeout == -2:
+            await ctx.send(f"Некорректно введено время. Введите целое число.")
+            return
 
         prize = ":gift:"
 #         await ctx.send(f"Розыгрыш будет проведён в {channel.mention} и итоги будут опубликованы через {answers[1]} секунд!")
@@ -116,16 +116,16 @@ class Gift(Cog):
     async def mythgift(self, ctx, *, time: Optional[str] = "60s" ):
         """Команда для сброса мифического подарка."""
 #      await ctx.send(":no-entry: Эта команда была отключена.")
-#         def check(m):
-#             return m.author == ctx.author and m.channel == ctx.channel
+        def check(m):
+            return m.author == ctx.author and m.channel == ctx.channel
 
-#         timeout = convert(time)
-#         if timeout == -1:
-#             await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
-#             return
-#         elif timeout == -2:
-#             await ctx.send(f"Некорректно введено время. Введите целое число.")
-#             return
+        timeout = convert(time)
+        if timeout == -1:
+            await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
+            return
+        elif timeout == -2:
+            await ctx.send(f"Некорректно введено время. Введите целое число.")
+            return
   
         prize = ":gift:"
         embed = discord.Embed(title = "Появился **МИФИЧЕСКИЙ** подарок!", description = f"{prize}", color = 0xFF0000)
@@ -149,16 +149,16 @@ class Gift(Cog):
     async def legendarygift(self, ctx, *, time: Optional[str] = "90s" ):
         """Команда для сброса легендарного подарка."""
 #      await ctx.send(":no-entry: Эта команда была отключена.")
-#         def check(m):
-#             return m.author == ctx.author and m.channel == ctx.channel
+        def check(m):
+            return m.author == ctx.author and m.channel == ctx.channel
 
-#         timeout = convert(time)
-#         if timeout == -1:
-#             await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
-#             return
-#         elif timeout == -2:
-#             await ctx.send(f"Некорректно введено время. Введите целое число.")
-#             return
+        timeout = convert(time)
+        if timeout == -1:
+            await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
+            return
+        elif timeout == -2:
+            await ctx.send(f"Некорректно введено время. Введите целое число.")
+            return
  
         prize = ":gift:"
         await ctx.send(f"Розыгрыш будет проведён в {channel.mention} и итоги будут опубликованы через {answers[1]} секунд!")
@@ -185,16 +185,16 @@ class Gift(Cog):
     async def mythgift(self, ctx, *, time: Optional[str] = "60s" ):
         """Команда для сброса экзотического подарка."""
 #      await ctx.send(":no-entry: Эта команда была отключена.")
-#         def check(m):
-#             return m.author == ctx.author and m.channel == ctx.channel
+        def check(m):
+            return m.author == ctx.author and m.channel == ctx.channel
 
-#         timeout = convert(time)
-#         if timeout == -1:
-#             await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
-#             return
-#         elif timeout == -2:
-#             await ctx.send(f"Некорректно введено время. Введите целое число.")
-#             return
+        timeout = convert(time)
+        if timeout == -1:
+            await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
+            return
+        elif timeout == -2:
+            await ctx.send(f"Некорректно введено время. Введите целое число.")
+            return
  
         prize = ":gift:"
         embed = discord.Embed(title = "Появился **ЭКЗОТИЧЕСКИЙ** подарок!", description = f"{prize}", color = 0x24FF00)
