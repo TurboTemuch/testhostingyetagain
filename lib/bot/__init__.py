@@ -6,7 +6,7 @@ from glob import glob
 from pathlib import Path
 from random import choice
 
-from discord import Intents
+from discord import Intents, Forbidden
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
 from discord import Embed, File
@@ -81,6 +81,10 @@ class Bot(BotBase):
     async def on_command_error(self, ctx, exc):
         if any([isinstance(exc, error) for error in IGNORE_EXCEPTIONS]):
             pass
+        
+        elif isinstance(exc, Forbidden):
+            # pass
+            await ctx.send(':x: 403 Forbidden: Недостаточно прав для выполнения действия.')
         
         elif isinstance(exc, CommandNotFound):
             # pass
