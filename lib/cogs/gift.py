@@ -49,7 +49,7 @@ class Gift(Cog):
             return
         elif timeout == -2:
             await ctx.send(f"Некорректно введено время. Введите целое число.")
-        return
+            return
 
         prize = ":gift:"
         embed = discord.Embed(title = "Появился подарок!", description = f"{prize}", color = 0xFFFFFF)
@@ -85,7 +85,6 @@ class Gift(Cog):
             return
 
         prize = ":gift:"
-#         await ctx.send(f"Розыгрыш будет проведён в {channel.mention} и итоги будут опубликованы через {answers[1]} секунд!")
         embed = discord.Embed(title = "Появился *эпический* подарок!", description = f"{prize}", color = 0x7E13AE)
         embed.set_footer(text = f"Открывается через {time}!")
         my_msg = await ctx.send(embed = embed)
