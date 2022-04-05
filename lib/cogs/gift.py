@@ -50,7 +50,7 @@ class Gift(Cog):
 #             await ctx.send(f"Некорректно введено время. Введите целое число.")
 #         return
 
-#         prize = ":gift:"
+        prize = ":gift:"
 #         await ctx.send(f"Розыгрыш будет проведён в {channel.mention} и итоги будут опубликованы через {answers[1]} секунд!")
         embed = discord.Embed(title = "Появился подарок!", description = f"{prize}", color = 0xFFFFFF)
 
@@ -93,7 +93,7 @@ class Gift(Cog):
 #             await ctx.send(f"Некорректно введено время. Введите целое число.")
 #             return
 
-#         prize = ":gift:"
+        prize = ":gift:"
 #         await ctx.send(f"Розыгрыш будет проведён в {channel.mention} и итоги будут опубликованы через {answers[1]} секунд!")
         embed = discord.Embed(title = "Появился *эпический* подарок!", description = f"{prize}", color = 0x7E13AE)
         embed.set_footer(text = f"Открывается через {time}!")
@@ -127,7 +127,7 @@ class Gift(Cog):
 #             await ctx.send(f"Некорректно введено время. Введите целое число.")
 #             return
   
-#         prize = ":gift:"
+        prize = ":gift:"
         embed = discord.Embed(title = "Появился **МИФИЧЕСКИЙ** подарок!", description = f"{prize}", color = 0xFF0000)
         embed.set_footer(text = f"Открывается через {time}!")
         my_msg = await ctx.send(embed = embed)
@@ -160,7 +160,7 @@ class Gift(Cog):
 #             await ctx.send(f"Некорректно введено время. Введите целое число.")
 #             return
  
-#         prize = ":gift:"
+        prize = ":gift:"
         await ctx.send(f"Розыгрыш будет проведён в {channel.mention} и итоги будут опубликованы через {answers[1]} секунд!")
         embed = discord.Embed(title = ":crown:Появился **ЛЕГЕНДАРНЫЙ** подарок!:crown: ", description = f"{prize}", color = 0xFFC600)
         embed.set_footer(text = f"Открывается через {time}!")
@@ -196,7 +196,7 @@ class Gift(Cog):
 #             await ctx.send(f"Некорректно введено время. Введите целое число.")
 #             return
  
-#         prize = ":gift:"
+        prize = ":gift:"
         embed = discord.Embed(title = "Появился **ЭКЗОТИЧЕСКИЙ** подарок!", description = f"{prize}", color = 0x24FF00)
         embed.set_footer(text = f"Открывается через {time}!")
         my_msg = await ctx.send(embed = embed)
