@@ -165,7 +165,7 @@ class Main(Cog):
         if targets.id == 514069435913469962:
             await ctx.send(":x: Невозможно забанить пользователя.")
         else:
-	    await targets.ban(reason=reason, delete_message_days=time)
+            await targets.ban(reason=reason, delete_message_days=time)
             await ctx.send("Действие выполнено.")
     
     @bancmd.error
