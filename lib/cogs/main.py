@@ -14,7 +14,7 @@ from discord.ext.commands import command, has_permissions
 from discord.ext.commands import Cog, BucketType, Greedy, CheckFailure
 from discord.ext.commands import command, cooldown
 
-class Fun(Cog):
+class Main(Cog):
     def __init__(self, bot):
         self.bot = bot
         
@@ -25,10 +25,18 @@ class Fun(Cog):
         
         await ctx.send(f"{choice((':white_check_mark:', 'Всё работает!', ':eyes:', '5 минут, полёт нормальный!', 'Я жив!', 'На месте!', 'Спасибо <@514069435913469962>, что я работаю!'))}")
 
-    @command(name="сказать", aliases=["speech", "tts"], description="Скажите что-нибудь от лица бота.")
+    @command(name="сказать", aliases=["say", "s",], description="Скажите что-нибудь от лица бота. (🔒Необходима роль TurboBot1-Access)")
+    @commands.has_role("TurboBot1-Access")
+    @cooldown(1, 20, BucketType.user)
+    async def tts(self, ctx, *, text:str):
+        """Скажите что-нибудь от лица бота. (🔒Необходима роль TurboBot1-Access)"""
+        await ctx.send(f"{text}")
+        await ctx.message.delete()
+
+    @command(name="t", aliases=["tell", "текст", "с"], description="Скажите что-нибудь от лица бота. (🔒Доступна только владельцу, без кулдауна)")
     @commands.is_owner()
     async def tts(self, ctx, *, text:str):
-        """Скажите что-нибудь от лица бота."""
+        """Скажите что-нибудь от лица бота. (🔒Доступна только владельцу, без кулдауна)"""
         await ctx.send(f"{text}")
         await ctx.message.delete()
      
@@ -165,8 +173,8 @@ class Fun(Cog):
     @Cog.listener()
     async def on_ready(self):
         if not self.bot.ready:
-            self.bot.cogs_ready.ready_up("fun")
+            self.bot.cogs_ready.ready_up("main")
 
 def setup(bot):
-    bot.add_cog(Fun(bot))
+    bot.add_cog(Main(bot))
    # bot.scheduler.add_job(...)
