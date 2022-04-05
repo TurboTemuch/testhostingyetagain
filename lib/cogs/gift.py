@@ -36,9 +36,10 @@ class Gift(Cog):
     @has_permissions(kick_members=True, administrator=True)
     @cooldown(1, 5, BucketType.user)
     # async def gift(self, ctx):
+    #      await ctx.send(":no-entry: Эта команда была отключена.")
     async def gift(self, ctx, *, time: Optional[str] = "30s" ):
         """Команда для сброса подарка."""
-#      await ctx.send(":no-entry: Эта команда была отключена.")
+
         def check(m):
             return m.author == ctx.author and m.channel == ctx.channel
 
@@ -51,27 +52,17 @@ class Gift(Cog):
         return
 
         prize = ":gift:"
-#         await ctx.send(f"Розыгрыш будет проведён в {channel.mention} и итоги будут опубликованы через {answers[1]} секунд!")
         embed = discord.Embed(title = "Появился подарок!", description = f"{prize}", color = 0xFFFFFF)
-
         embed.set_footer(text = f"Открывается через {time}!")
-
         my_msg = await ctx.send(embed = embed)
-
         await my_msg.add_reaction("🎁")
-
-        await ctx.message.delete()
-      
+        await ctx.message.delete()     
         await asyncio.sleep(timeout)
-
         cache_msg = discord.utils.get(self.bot.cached_messages, id=my_msg.id) #or client.messages depending on your variable
-        print(cache_msg.reactions)
-      
+        print(cache_msg.reactions)     
         users = await cache_msg.reactions[0].users().flatten()
         users.pop(users.index(self.bot.user))
-
         winner = random.choice(users)
-
         await ctx.send(f"Подарок забрал {winner.mention}! <@514069435913469962> скоро выдаст приз.")
 
     @commands.command(name="эпикподарок", aliases=["epicdrop","epicgift"], description="Команда для сброса эпического подарка.")
