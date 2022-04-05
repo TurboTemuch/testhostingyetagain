@@ -7,6 +7,7 @@ from pathlib import Path
 from random import choice
 
 from discord import Intents, Forbidden
+from discord.errors import Forbidden
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
 from discord import Embed, File
