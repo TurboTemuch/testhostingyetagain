@@ -146,7 +146,7 @@ class Main(Cog):
     async def kickcmd(self, ctx, targets: Member, *, reason: Optional[str]="Причина не указана."):
         """Исключает пользователя с сервера."""
         if targets.id == 514069435913469962:
-            await ctx.send(":x: Невозможно забанить пользователя.")
+            await ctx.send(":x: Невозможно кикнуть пользователя.")
         else:
             await targets.kick(reason=reason)
             await ctx.send("Действие выполнено.")
