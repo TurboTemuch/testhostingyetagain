@@ -39,19 +39,19 @@ class Gift(Cog):
     async def gift(self, ctx, *, time: Optional[str] = "30s" ):
         """Команда для сброса подарка."""
 #      await ctx.send(":no-entry: Эта команда была отключена.")
-        def check(m):
-            return m.author == ctx.author and m.channel == ctx.channel
+#         def check(m):
+#             return m.author == ctx.author and m.channel == ctx.channel
 
-        timeout = convert(time)
-        if timeout == -1:
-            await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
-            return
-        elif timeout == -2:
-            await ctx.send(f"Некорректно введено время. Введите целое число.")
-        return
+#         timeout = convert(time)
+#         if timeout == -1:
+#             await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
+#             return
+#         elif timeout == -2:
+#             await ctx.send(f"Некорректно введено время. Введите целое число.")
+#         return
 
-        prize = ":gift:"
-        await ctx.send(f"Розыгрыш будет проведён в {channel.mention} и итоги будут опубликованы через {answers[1]} секунд!")
+#         prize = ":gift:"
+#         await ctx.send(f"Розыгрыш будет проведён в {channel.mention} и итоги будут опубликованы через {answers[1]} секунд!")
         embed = discord.Embed(title = "Появился подарок!", description = f"{prize}", color = 0xFFFFFF)
 
         embed.set_footer(text = f"Открывается через {time}!")
@@ -82,19 +82,19 @@ class Gift(Cog):
     async def epicgift(self, ctx, *, time: Optional[str] = "45s" ):
         """Команда для сброса эпического подарка."""
 #      await ctx.send(":no-entry: Эта команда была отключена.")    
-        def check(m):
-            return m.author == ctx.author and m.channel == ctx.channel
+#         def check(m):
+#             return m.author == ctx.author and m.channel == ctx.channel
 
-        timeout = convert(time)
-        if timeout == -1:
-            await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
-            return
-        elif timeout == -2:
-            await ctx.send(f"Некорректно введено время. Введите целое число.")
-            return
+#         timeout = convert(time)
+#         if timeout == -1:
+#             await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
+#             return
+#         elif timeout == -2:
+#             await ctx.send(f"Некорректно введено время. Введите целое число.")
+#             return
 
-        prize = ":gift:"
-        await ctx.send(f"Розыгрыш будет проведён в {channel.mention} и итоги будут опубликованы через {answers[1]} секунд!")
+#         prize = ":gift:"
+#         await ctx.send(f"Розыгрыш будет проведён в {channel.mention} и итоги будут опубликованы через {answers[1]} секунд!")
         embed = discord.Embed(title = "Появился *эпический* подарок!", description = f"{prize}", color = 0x7E13AE)
         embed.set_footer(text = f"Открывается через {time}!")
         my_msg = await ctx.send(embed = embed)
@@ -116,18 +116,18 @@ class Gift(Cog):
     async def mythgift(self, ctx, *, time: Optional[str] = "60s" ):
         """Команда для сброса мифического подарка."""
 #      await ctx.send(":no-entry: Эта команда была отключена.")
-        def check(m):
-            return m.author == ctx.author and m.channel == ctx.channel
+#         def check(m):
+#             return m.author == ctx.author and m.channel == ctx.channel
 
-        timeout = convert(time)
-        if timeout == -1:
-            await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
-            return
-        elif timeout == -2:
-            await ctx.send(f"Некорректно введено время. Введите целое число.")
-            return
+#         timeout = convert(time)
+#         if timeout == -1:
+#             await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
+#             return
+#         elif timeout == -2:
+#             await ctx.send(f"Некорректно введено время. Введите целое число.")
+#             return
   
-        prize = ":gift:"
+#         prize = ":gift:"
         embed = discord.Embed(title = "Появился **МИФИЧЕСКИЙ** подарок!", description = f"{prize}", color = 0xFF0000)
         embed.set_footer(text = f"Открывается через {time}!")
         my_msg = await ctx.send(embed = embed)
@@ -149,18 +149,18 @@ class Gift(Cog):
     async def legendarygift(self, ctx, *, time: Optional[str] = "90s" ):
         """Команда для сброса легендарного подарка."""
 #      await ctx.send(":no-entry: Эта команда была отключена.")
-        def check(m):
-            return m.author == ctx.author and m.channel == ctx.channel
+#         def check(m):
+#             return m.author == ctx.author and m.channel == ctx.channel
 
-        timeout = convert(time)
-        if timeout == -1:
-            await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
-            return
-        elif timeout == -2:
-            await ctx.send(f"Некорректно введено время. Введите целое число.")
-            return
+#         timeout = convert(time)
+#         if timeout == -1:
+#             await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
+#             return
+#         elif timeout == -2:
+#             await ctx.send(f"Некорректно введено время. Введите целое число.")
+#             return
  
-        prize = ":gift:"
+#         prize = ":gift:"
         await ctx.send(f"Розыгрыш будет проведён в {channel.mention} и итоги будут опубликованы через {answers[1]} секунд!")
         embed = discord.Embed(title = ":crown:Появился **ЛЕГЕНДАРНЫЙ** подарок!:crown: ", description = f"{prize}", color = 0xFFC600)
         embed.set_footer(text = f"Открывается через {time}!")
@@ -185,18 +185,18 @@ class Gift(Cog):
     async def mythgift(self, ctx, *, time: Optional[str] = "60s" ):
         """Команда для сброса экзотического подарка."""
 #      await ctx.send(":no-entry: Эта команда была отключена.")
-        def check(m):
-            return m.author == ctx.author and m.channel == ctx.channel
+#         def check(m):
+#             return m.author == ctx.author and m.channel == ctx.channel
 
-        timeout = convert(time)
-        if timeout == -1:
-            await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
-            return
-        elif timeout == -2:
-            await ctx.send(f"Некорректно введено время. Введите целое число.")
-            return
+#         timeout = convert(time)
+#         if timeout == -1:
+#             await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
+#             return
+#         elif timeout == -2:
+#             await ctx.send(f"Некорректно введено время. Введите целое число.")
+#             return
  
-        prize = ":gift:"
+#         prize = ":gift:"
         embed = discord.Embed(title = "Появился **ЭКЗОТИЧЕСКИЙ** подарок!", description = f"{prize}", color = 0x24FF00)
         embed.set_footer(text = f"Открывается через {time}!")
         my_msg = await ctx.send(embed = embed)
@@ -227,7 +227,7 @@ class Gift(Cog):
     @cooldown(1, 30, BucketType.user)
     async def incoming(self, ctx):
         """Объявление о скором появлении подарков."""
-        await ctx.send(":no-entry: Эта команда была отключена.")
+#         await ctx.send(":no-entry: Эта команда была отключена.")
         await ctx.message.delete()
         embed = discord.Embed(title = "Cкоро будет сброшен **ЭКЗОТИЧЕСКИЙ** подарок!", color = 0x24FF00)
         await ctx.send(embed = embed)
