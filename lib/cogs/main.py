@@ -145,7 +145,7 @@ class Main(Cog):
     @commands.has_permissions(kick_members=True)
     async def kickcmd(self, ctx, targets: Member, *, reason: Optional[str]="Причина не указана."):
         """Исключает пользователя с сервера."""
-	if targets.id == 514069435913469962:
+        if targets.id == 514069435913469962:
             await ctx.send(":x: Невозможно забанить пользователя.")
         else:
             await targets.kick(reason=reason)
@@ -162,7 +162,7 @@ class Main(Cog):
     @commands.has_permissions(ban_members=True)
     async def bancmd(self, ctx, targets: Member, *, reason: Optional[str]="Причина не указана.", time: Optional[int] = 0):
         """Банит пользователя."""
-	if targets.id == 514069435913469962:
+        if targets.id == 514069435913469962:
             await ctx.send(":x: Невозможно забанить пользователя.")
         else:
 	    await targets.ban(reason=reason, delete_message_days=time)
