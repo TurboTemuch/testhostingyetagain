@@ -35,7 +35,7 @@ class Main(Cog):
 
     @command(name="t", aliases=["tell", "текст", "с"], description="Скажите что-нибудь от лица бота. (🔒Доступна только владельцу, без кулдауна)")
     @commands.is_owner()
-    async def tts(self, ctx, *, text:str):
+    async def ttsowner(self, ctx, *, text:str):
         """Скажите что-нибудь от лица бота. (🔒Доступна только владельцу, без кулдауна)"""
         await ctx.send(f"{text}")
         await ctx.message.delete()
