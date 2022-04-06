@@ -98,7 +98,7 @@ class Main(Cog):
         
         embed = Embed(title=f"Версия: `{ctx.bot.VERSION}`", colour=0x00FF00,
                           timestamp=datetime.utcnow())
-        fields = [("Bot created and coded by TurboTemuch#7375", "Введите `/help <команда>` для просмотра использования команды", True)]
+        fields = [("Bot created and coded by TurboTemuch#7375", f"Введите `{ctx.bot.PREFIX}help <команда>` для просмотра использования команды", True)]
         for name, value, inline in fields:
             embed.add_field(name=name, value=value, inline=inline)
             embed.set_author(name=f"Бот TurboTemuch1 онлайн!")
@@ -117,7 +117,8 @@ class Main(Cog):
     @commands.is_owner()
     async def stable(self, ctx):
         """Техническая команда для завершения обновления."""
-        await ctx.bot.change_presence(status=discord.Status.online, activity=discord.Game(f";help (version {ctx.bot.VERSION})"))
+	await ctx.send(f"Обновление завершено. Миграция на версию: {ctx.bot.VERSION}")
+        await ctx.bot.change_presence(status=discord.Status.online, activity=discord.Game(f"{ctx.bot.PREFIX}help (version {ctx.bot.VERSION})"))
         await ctx.message.delete()
         
     @command(name="управление", aliases=["toggle", "вкл", "maintenance"], description="Включение или выключение команд.")
