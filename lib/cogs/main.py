@@ -31,7 +31,7 @@ class Main(Cog):
     async def tts(self, ctx, *, text:str):
         """Скажите что-нибудь от лица бота. (🔒Необходима роль TurboBot1-Access)"""
         memb = ctx.author.name
-        guildnick = ctx.author.name
+        guildnick = ctx.author.nick
         if guildnick == "None":
             guildnick = "-"
         await ctx.send(f"{text} \n \n  *Автор: {memb} (Ник на сервере: {guildnick})*")
