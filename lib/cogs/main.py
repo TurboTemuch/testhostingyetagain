@@ -117,7 +117,7 @@ class Main(Cog):
     @commands.is_owner()
     async def stable(self, ctx):
         """Техническая команда для завершения обновления."""
-	await ctx.send(f"Обновление завершено. Миграция на версию: {ctx.bot.VERSION}")
+        await ctx.send(f"Обновление завершено. Миграция на версию: {ctx.bot.VERSION}")
         await ctx.bot.change_presence(status=discord.Status.online, activity=discord.Game(f"{ctx.bot.PREFIX}help (version {ctx.bot.VERSION})"))
         await ctx.message.delete()
         
