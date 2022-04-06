@@ -183,9 +183,9 @@ class Main(Cog):
     @command(name="logupdate", description="Команда для ввода лога обновления. (🔒Доступна только владельцу, без кулдауна)")
     @commands.is_owner()
     async def logupdate(self, ctx, *, log:str):
-	"""Команда для ввода лога обновления. (🔒Доступна только владельцу, без кулдауна)"""
+        """Команда для ввода лога обновления. (🔒Доступна только владельцу, без кулдауна)"""
         logchannel = self.bot.get_channel(926189123545493545)
-	await logchannel.send(f"Бот TurboTemuch1\n{self.bot.VERSION} Changelog:\n- Изменение: `{log}`")
+        await logchannel.send(f"Бот TurboTemuch1\n{self.bot.VERSION} Changelog:\n- Изменение: `{log}`")
 
     @Cog.listener()
     async def on_ready(self):
