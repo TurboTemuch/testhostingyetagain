@@ -32,7 +32,7 @@ class Gift(Cog):
         self.bot = bot
 
     @commands.command(name="подарок", aliases=["drop","gift"], description="Команда для сброса подарка.")
-    @commands.has_role("Главный Санта")
+    @commands.has_role("Gift perms")
     @has_permissions(kick_members=True, administrator=True)
     @cooldown(1, 5, BucketType.user)
     # async def gift(self, ctx):
@@ -66,7 +66,7 @@ class Gift(Cog):
         await ctx.send(f"Подарок забрал {winner.mention}! <@514069435913469962> скоро выдаст приз.")
 
     @commands.command(name="эпикподарок", aliases=["epicdrop","epicgift"], description="Команда для сброса эпического подарка.")
-    @commands.has_role("Главный Санта")
+    @commands.has_role("Gift perms")
     @has_permissions(kick_members=True, administrator=True)
     @cooldown(1, 5, BucketType.user)
     # async def epicgift(self, ctx):
@@ -99,7 +99,7 @@ class Gift(Cog):
         await ctx.send(f"{winner.mention} забрал *эпический* подарок! <@514069435913469962> скоро выдаст приз.")
 
     @commands.command(name="мифподарок", aliases=["mythdrop","mythgift"], description="Команда для сброса мифического подарка.")
-    @commands.has_role("Главный Санта")
+    @commands.has_role("Gift perms")
     @has_permissions(kick_members=True, administrator=True)
     @cooldown(1, 5, BucketType.user)
     # async def mythgift(self, ctx):
@@ -132,7 +132,7 @@ class Gift(Cog):
         await ctx.send(f"{winner.mention} забрал **МИФИЧЕСКИЙ** подарок! <@514069435913469962> скоро выдаст приз.")
 
     @commands.command(name="легаподарок", aliases=["legenddrop","legendgift","legendarygift","legendarydrop"], description="Команда для сброса легендарного подарка.")
-    @commands.has_role("Главный Санта")
+    @commands.has_role("Gift perms")
     @has_permissions(kick_members=True, administrator=True)
     @cooldown(1, 5, BucketType.user)
     # async def legendarygift(self, ctx):
@@ -168,11 +168,11 @@ class Gift(Cog):
         await ctx.send(f"{winner.mention} забрал :crown: **ЛЕГЕНДАРНЫЙ**:crown:  подарок! <@514069435913469962> скоро выдаст приз.")
       
     @commands.command(name="экзаподарок", aliases=["exoticdrop","exoticgift"], description="Команда для сброса экзотического подарка.")
-    @commands.has_role("Главный Санта")
+    @commands.has_role("Gift perms")
     @has_permissions(kick_members=True, administrator=True)
     @cooldown(1, 5, BucketType.user)
     # async def mythgift(self, ctx):
-    async def mythgift(self, ctx, *, time: Optional[str] = "60s" ):
+    async def exoticgift(self, ctx, *, time: Optional[str] = "60s" ):
         """Команда для сброса экзотического подарка."""
 #      await ctx.send(":no-entry: Эта команда была отключена.")
         def check(m):
@@ -201,7 +201,7 @@ class Gift(Cog):
         await ctx.send(f"{winner.mention} забрал **ЭКЗОТИЧЕСКИЙ** подарок! <@514069435913469962> скоро выдаст приз.")
       
     @commands.command(name="incoming", aliases=["dropsoon"], description="Объявление о скором появлении подарков.")
-    @commands.has_role("Главный Санта")
+    @commands.has_role("Gift perms")
     @has_permissions(kick_members=True, administrator=True)
     @cooldown(1, 30, BucketType.user)
     async def incoming(self, ctx):
@@ -212,7 +212,7 @@ class Gift(Cog):
         await ctx.send(embed = embed)
       
     @commands.command(name="exoticalincoming", aliases=["exoticaldropsoon"], description="Объявление о скором появлении экзотического подарка.")
-    @commands.has_role("Главный Санта")
+    @commands.has_role("Gift perms")
     @has_permissions(kick_members=True, administrator=True)
     @cooldown(1, 30, BucketType.user)
     async def incoming(self, ctx):
