@@ -11,14 +11,56 @@ from discord.ext.commands import command, cooldown
 
 from typing import Optional
 
-def convert(time):
+def convertval(time):
   pos = ["s","m","h","d"]
-
+  
   time_dict = {"s" : 1, "m" : 60, "h" : 3600, "d": 3600*24}
 
   unit = time[-1]
+  
+  elif unit not in pos:
+    return -1
+  try:
+    val = int(time[:-1])
+  except:
+    return -2
 
-  if unit not in pos:
+  return val
+
+def convertdisplay(time):
+  pos = ["s","m","h","d"]
+  
+  time_dict = {"s" : 1, "m" : 60, "h" : 3600, "d": 3600*24}
+
+  unit = time[-1]
+  
+  display = str()
+  
+  if unit == "s":
+    display = " секунд"
+  elif unit == "m":
+    display = " минут"
+  elif unit == "h":
+    display = " часов"
+  elif unit == "d":
+    display = " дней"
+  elif unit not in pos:
+    return -1
+  try:
+    val = int(time[:-1])
+  except:
+    return -2
+  
+  return display
+
+def convert(time):
+  pos = ["s","m","h","d"]
+  
+  time_dict = {"s" : 1, "m" : 60, "h" : 3600, "d": 3600*24}
+
+  unit = time[-1]
+  
+  elif unit not in pos:
     return -1
   try:
     val = int(time[:-1])
@@ -43,6 +85,8 @@ class Gift(Cog):
         def check(m):
             return m.author == ctx.author and m.channel == ctx.channel
 
+        value = convertval(time)
+        disp = convertdisplay(time)
         timeout = convert(time)
         if timeout == -1:
             await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
@@ -50,10 +94,10 @@ class Gift(Cog):
         elif timeout == -2:
             await ctx.send(f"Некорректно введено время. Введите целое число.")
             return
-
+          
         prize = ":gift:"
         embed = discord.Embed(title = "Появился подарок!", description = f"{prize}", color = 0xFFFFFF)
-        embed.set_footer(text = f"Открывается через {time}!")
+        embed.set_footer(text = f"Открывается через {value}{disp}!")
         my_msg = await ctx.send(embed = embed)
         await my_msg.add_reaction("🎁")
         await ctx.message.delete()     
@@ -75,7 +119,9 @@ class Gift(Cog):
 #      await ctx.send(":no-entry: Эта команда была отключена.")    
         def check(m):
             return m.author == ctx.author and m.channel == ctx.channel
-
+       
+        value = convertval(time)
+        disp = convertdisplay(time)
         timeout = convert(time)
         if timeout == -1:
             await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
@@ -86,7 +132,7 @@ class Gift(Cog):
 
         prize = ":gift:"
         embed = discord.Embed(title = "Появился *эпический* подарок!", description = f"{prize}", color = 0x7E13AE)
-        embed.set_footer(text = f"Открывается через {time}!")
+        embed.set_footer(text = f"Открывается через {time}{disp}!")
         my_msg = await ctx.send(embed = embed)
         await my_msg.add_reaction("🎁")
         await ctx.message.delete()
@@ -108,7 +154,9 @@ class Gift(Cog):
 #      await ctx.send(":no-entry: Эта команда была отключена.")
         def check(m):
             return m.author == ctx.author and m.channel == ctx.channel
-
+        
+        value = convertval(time)
+        disp = convertdisplay(time)
         timeout = convert(time)
         if timeout == -1:
             await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
@@ -119,7 +167,7 @@ class Gift(Cog):
   
         prize = ":gift:"
         embed = discord.Embed(title = "Появился **МИФИЧЕСКИЙ** подарок!", description = f"{prize}", color = 0xFF0000)
-        embed.set_footer(text = f"Открывается через {time}!")
+        embed.set_footer(text = f"Открывается через {value}{disp}!")
         my_msg = await ctx.send(embed = embed)
         await my_msg.add_reaction("🎁")
         await ctx.message.delete()  
@@ -142,6 +190,8 @@ class Gift(Cog):
         def check(m):
             return m.author == ctx.author and m.channel == ctx.channel
 
+        value = convertval(time)
+        disp = convertdisplay(time)
         timeout = convert(time)
         if timeout == -1:
             await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
@@ -152,7 +202,7 @@ class Gift(Cog):
  
         prize = ":gift:"
         embed = discord.Embed(title = ":crown:Появился **ЛЕГЕНДАРНЫЙ** подарок!:crown: ", description = f"{prize}", color = 0xFFC600)
-        embed.set_footer(text = f"Открывается через {time}!")
+        embed.set_footer(text = f"Открывается через {value}{disp}!")
         my_msg = await ctx.send(embed = embed)
         await my_msg.add_reaction("🎁")
         await ctx.message.delete()
@@ -177,6 +227,8 @@ class Gift(Cog):
         def check(m):
             return m.author == ctx.author and m.channel == ctx.channel
 
+        value = convertval(time)
+        disp = convertdisplay(time)
         timeout = convert(time)
         if timeout == -1:
             await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
@@ -187,7 +239,7 @@ class Gift(Cog):
  
         prize = ":gift:"
         embed = discord.Embed(title = "Появился **ЭКЗОТИЧЕСКИЙ** подарок!", description = f"{prize}", color = 0x24FF00)
-        embed.set_footer(text = f"Открывается через {time}!")
+        embed.set_footer(text = f"Открывается через {value}{disp}!")
         my_msg = await ctx.send(embed = embed)
         await my_msg.add_reaction("🎁")
         await ctx.message.delete()
