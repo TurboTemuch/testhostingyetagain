@@ -30,7 +30,7 @@ class Main(Cog):
     @cooldown(1, 20, BucketType.user)
     async def tts(self, ctx, *, text:str):
         """Скажите что-нибудь от лица бота. (🔒Необходима роль TurboBot1-Access)"""
-        memb = ctx.author.nick
+        memb = ctx.author.name
         await ctx.send(f"{text} \n  *Автор: {memb}*")
         await ctx.message.delete()
 
