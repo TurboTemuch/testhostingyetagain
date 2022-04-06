@@ -18,7 +18,7 @@ def convertval(time):
 
   unit = time[-1]
   
-  elif unit not in pos:
+  if unit not in pos:
     return -1
   try:
     val = int(time[:-1])
@@ -60,7 +60,7 @@ def convert(time):
 
   unit = time[-1]
   
-  elif unit not in pos:
+  if unit not in pos:
     return -1
   try:
     val = int(time[:-1])
