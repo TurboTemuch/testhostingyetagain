@@ -11,6 +11,48 @@ from discord.ext import commands
 from discord.ext.commands import Cog, BucketType
 from discord.ext.commands import command, cooldown
 
+def convertval(time):
+  pos = ["s","m","h","d"]
+  
+  time_dict = {"s" : 1, "m" : 60, "h" : 3600, "d": 3600*24}
+
+  unit = time[-1]
+  
+  elif unit not in pos:
+    return -1
+  try:
+    val = int(time[:-1])
+  except:
+    return -2
+
+  return val
+
+def convertdisplay(time):
+  pos = ["s","m","h","d"]
+  
+  time_dict = {"s" : 1, "m" : 60, "h" : 3600, "d": 3600*24}
+
+  unit = time[-1]
+  
+  display = str()
+  
+  if unit == "s":
+    display = " секунд"
+  elif unit == "m":
+    display = " минут"
+  elif unit == "h":
+    display = " часов"
+  elif unit == "d":
+    display = " дней"
+  elif unit not in pos:
+    return -1
+  try:
+    val = int(time[:-1])
+  except:
+    return -2
+  
+  return display
+
 def convert(time):
   pos = ["s","m","h","d"]
 
@@ -65,6 +107,8 @@ class Giveaway(Cog):
 
       channel = self.bot.get_channel(c_id)
 
+      value = convertval(answers[1])
+      disp = convertdisplay(answers[1])
       time = convert(answers[1])
       if time == -1:
         await ctx.send(f"Некорректно введено обозначение. Используйте (s|m|h|d).")
@@ -81,7 +125,7 @@ class Giveaway(Cog):
 
       embed.add_field(name = "Проводит:", value = ctx.author.mention)
 
-      embed.set_footer(text = f"Заканчивается через {answers[1]}!")
+      embed.set_footer(text = f"Заканчивается через {value}{disp}!")
 
       my_msg = await channel.send(embed = embed)
 
