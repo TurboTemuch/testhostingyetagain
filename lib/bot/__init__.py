@@ -89,7 +89,7 @@ class Bot(BotBase):
         
         elif isinstance(exc, CommandNotFound):
             # pass
-            await ctx.send(':x: Неизвестная команда. Введите `>help` для просмотра списка команд.')
+            await ctx.send(f":x: Неизвестная команда. Введите `{PREFIX}help` для просмотра списка команд.")
        
         elif isinstance(exc, MissingRequiredArgument):
             # pass
@@ -125,7 +125,7 @@ class Bot(BotBase):
             self.stdout = self.get_channel(797869639840825374)
             self.scheduler.start()
             
-            await bot.change_presence(status=discord.Status.online, activity=discord.Game(f";хелп (version {self.VERSION})"))
+            await bot.change_presence(status=discord.Status.online, activity=discord.Game(f"{PREFIX}хелп (version {self.VERSION})"))
 
             # embed = Embed(title="[В СЕТИ]", colour=0x00FF00,
             #               timestamp=datetime.utcnow())
