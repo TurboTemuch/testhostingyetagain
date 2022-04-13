@@ -33,9 +33,11 @@ class Main(Cog):
         memb = ctx.author.name
         guildnick = ctx.author.nick
         if guildnick == "None":
-            guildnick = "-"
-        await ctx.send(f"{text} \n \n  *Автор: {memb} (Ник на сервере: {guildnick})*")
-        await ctx.message.delete()
+            await ctx.send(f"{text} \n \n  *Автор: {memb} (Ник на сервере отсутствует)*")
+            await ctx.message.delete()
+        else: 
+            await ctx.send(f"{text} \n \n  *Автор: {memb} (Ник на сервере: {guildnick})*")
+            await ctx.message.delete()
 
     @command(name="t", aliases=["tell", "текст", "с"], description="Скажите что-нибудь от лица бота. (🔒Доступна только владельцу, без кулдауна)")
     @commands.is_owner()
