@@ -32,7 +32,7 @@ class Main(Cog):
         """Скажите что-нибудь от лица бота. (🔒Необходима роль TurboBot1-Access)"""
         memb = ctx.author.name
         guildnick = ctx.author.nick
-        if guildnick == "None":
+        if guildnick is None:
             await ctx.send(f"{text} \n \n  *Автор: {memb} (Ник на сервере отсутствует)*")
             await ctx.message.delete()
         else: 
