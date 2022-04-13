@@ -105,7 +105,7 @@ class Bot(BotBase):
             await ctx.send(':x: Введён некорректный аргумент.')
             
         elif isinstance(exc, CommandOnCooldown):
-            await ctx.send(f":clock1: Вы достигли кулдауна команды! Вы сможете использовать её вновь через {exc.retry_after} секунд.")
+            await ctx.send(f":clock1: Вы достигли кулдауна команды! Вы сможете использовать её вновь через {exc.retry_after:,.2f} секунд.")
         
         elif isinstance(exc, DisabledCommand):
             await ctx.send(":no_entry: Эта команда была отключена.")
