@@ -4,7 +4,7 @@ from discord.ext.commands import command, has_permissions
 
 from ..db import db
 
-class Cmds(Cog):
+class Exp(Cog):
   def __init__(self, bot):
     self.bot = bot
     
