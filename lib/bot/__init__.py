@@ -1,4 +1,5 @@
 import discord
+import sqlite3
 
 from asyncio import sleep
 from datetime import datetime
