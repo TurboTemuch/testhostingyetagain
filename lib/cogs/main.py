@@ -153,6 +153,7 @@ class Main(Cog):
     @commands.is_owner()
     async def updatedb(self, ctx):
         guildneeded = self.bot.get_guild(739553608806301736)
+	print(guildneeded)
 
         db.multiexec("INSERT OR IGNORE INTO exp (UserID) VALUES (?)",
                      ((member.id,) for member in guildneeded.members if not member.bot))
