@@ -38,7 +38,7 @@ class Exp(Cog):
     
     db.execute("UPDATE exp SET XP = XP + ? WHERE UserID = ?", xp_add, new_lvl, message.author.id)
     
-    if new_lvl > lvl
+    if new_lvl > lvl:
       await self.channellvlup.send(f"Поздравляю {message.author.mention} с получением уровня {new_lvl:,}!")
     
   @Cog.listener()
