@@ -158,18 +158,7 @@ class Main(Cog):
         cur = con.cursor()
         for member in guildneeded.members:
             if not member.bot:
-                cur.execute("INSERT INTO exp")
-
-        to_remove = []
-        stored_members = db.column("SELECT UserID FROM exp")
-        for id_ in stored_members:
-            if not self.bot.guild.get_member(id_):
-                to_remove.append(id_)
-
-        for id_ in to_remove: 
-            db.multiexec("DELETE FROM exp WHERE UserID = ?", id_)
-
-        db.commit()
+                cur.execute("INSERT INTO exp(UserID) VALUES (?) ON CONFLICT DO NOTHING", member.id)
         
         await ctx.send("Database updated.")
 	     
