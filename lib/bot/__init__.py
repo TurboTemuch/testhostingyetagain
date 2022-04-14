@@ -51,24 +51,37 @@ class Bot(BotBase):
         for cog in COGS:
             self.load_extension(f"lib.cogs.{cog}")
             print(f"{cog} cog loaded")
+    def run(self, version):
+        self.VERSION = version
 
-#     def update_db(self):
-#         db.multiexec("INSERT OR IGNORE INTO guilds (GuildID) VALUES (?)",
-#                     ((guild.id,) for guild in self.guilds))
+        print("starting setup...")
 
-#         db.multiexec("INSERT OR IGNORE INTO exp (UserID) VALUES (?)",
-#                     ((member.id,) for member in self.guild.members if not member.bot))
+        print("setup complete")
+        self.setup()
 
-#         to_remove = []
-#         stored_members = db.column("SELECT UserID FROM exp")
-#         for id_ in stored_members:
-#             if not self.guild.get_member(id_):
-#                 to_remove.append(id_)
+        with open("./lib/bot/token.0", "r", encoding="utf-8") as tf:
+            self.TOKEN = tf.read()
 
-#         db.multiexec("DELETE FROM exp WHERE UserID = ?", 
-#                     ((id_,) for id_ in to_remove))
+        print("starting bot...")
+        super().run(self.TOKEN, reconnect=True)
+        
+    def update_db(self):
+        db.multiexec("INSERT OR IGNORE INTO guilds (GuildID) VALUES (?)",
+                    ((guild.id,) for guild in self.guilds))
 
-#         db.commit()
+        db.multiexec("INSERT OR IGNORE INTO exp (UserID) VALUES (?)",
+                    ((member.id,) for member in self.guild.members if not member.bot))
+
+        to_remove = []
+        stored_members = db.column("SELECT UserID FROM exp")
+        for id_ in stored_members:
+            if not self.guild.get_member(id_):
+                to_remove.append(id_)
+
+        db.multiexec("DELETE FROM exp WHERE UserID = ?", 
+                    ((id_,) for id_ in to_remove))
+
+        db.commit()
     
     async def on_connect(self):
         print(" bot connected")
