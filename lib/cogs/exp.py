@@ -31,15 +31,15 @@ class Exp(Cog):
       await self.add_xp(message, xp, lvl)
    
   async def add_xp(self, message, xp, lvl):
-    xp_to_add = randint(5, 10)
-    
-    if (new_lvl := int(((xp+xp_add)//42) ** 0.55)) > lvl:
-      db.execute("UPDATE exp SET XP = XP + ?, Level = ? WHERE UserID = ?", message.author.id)
-    
-    db.execute("UPDATE exp SET XP = XP + ? WHERE UserID = ?", xp_add, new_lvl, message.author.id)
-    
+    xp_to_add = randint(10, 20)
+    new_lvl = int(((xp+xp_to_add)//42) ** 0.55)
+
+    db.execute("UPDATE exp SET XP = XP + ?, Level = ?, XPLock = ? WHERE UserID = ?",
+           xp_to_add, new_lvl, (datetime.utcnow()+timedelta(seconds=60)).isoformat(), message.author.id)
+
     if new_lvl > lvl:
-      await self.channellvlup.send(f"Поздравляю {message.author.mention} с получением уровня {new_lvl:,}!")
+      await self.levelup_channel.send(f"Congrats {message.author.mention} - you reached level {new_lvl:,}!")
+      await self.check_lvl_rewards(message, new_lvl)
     
   @Cog.listener()
   async def on_message(self, message):
