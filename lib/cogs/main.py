@@ -146,6 +146,30 @@ class Main(Cog):
         cur.execute("CREATE TABLE IF NOT EXISTS exp (UserID integer PRIMARY KEY, XP integer DEFAULT 0, Level integer DEFAULT 0, XPLock text DEFAULT CURRENT_TIMESTAMP);")
         con.commit()
         await ctx.send("Database ready.")
+	
+    @command(name="updatedb")
+    @commands.is_owner()
+    async def updatedb(self, ctx):
+        guildneeded = self.get_guild(739553608806301736)
+
+        con = sqlite3.connect("database.db")
+        cur = con.cursor()
+        for member in guildneeded.members:
+            if not member.bot:
+                cur.execute("INSERT INTO exp")
+
+        to_remove = []
+        stored_members = db.column("SELECT UserID FROM exp")
+        for id_ in stored_members:
+            if not self.guild.get_member(id_):
+                to_remove.append(id_)
+
+        for id_ in to_remove: 
+            db.multiexec("DELETE FROM exp WHERE UserID = ?", id_)
+
+        db.commit()
+        
+        await ctx.send("Database updated.")
 	     
     @command(name="управление", aliases=["toggle", "вкл", "maintenance"], description="Включение или выключение команд. (🔒Доступна только владельцу, без кулдауна)")
     @commands.is_owner()
