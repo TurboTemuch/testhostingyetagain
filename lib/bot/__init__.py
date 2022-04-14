@@ -68,6 +68,7 @@ class Bot(BotBase):
         
     def update_db(self):
         guildneeded = self.get_guild(739553608806301736)
+        print(guildneeded)
 
         db.multiexec("INSERT OR IGNORE INTO exp (UserID) VALUES (?)",
                      ((member.id,) for member in guildneeded.members if not member.bot))
