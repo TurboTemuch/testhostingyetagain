@@ -1,5 +1,6 @@
 import discord
 import asyncio
+import sqlite3
 
 from os import name
 from random import choice
