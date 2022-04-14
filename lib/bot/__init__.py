@@ -52,23 +52,20 @@ class Bot(BotBase):
             self.load_extension(f"lib.cogs.{cog}")
             print(f"{cog} cog loaded")
 
-	def update_db(self):
-		db.multiexec("INSERT OR IGNORE INTO guilds (GuildID) VALUES (?)",
-					 ((guild.id,) for guild in self.guilds))
+    def update_db(self):
+        db.multiexec("INSERT OR IGNORE INTO guilds (GuildID) VALUES (?)", (guild.id,) for guild in self.guilds)
 
-		db.multiexec("INSERT OR IGNORE INTO exp (UserID) VALUES (?)",
-					 ((member.id,) for member in self.guild.members if not member.bot))
+        db.multiexec("INSERT OR IGNORE INTO exp (UserID) VALUES (?)", (member.id,) for member in self.guild.members if not member.bot)
 
-		to_remove = []
-		stored_members = db.column("SELECT UserID FROM exp")
-		for id_ in stored_members:
-			if not self.guild.get_member(id_):
-				to_remove.append(id_)
+        to_remove = []
+        stored_members = db.column("SELECT UserID FROM exp")
+        for id_ in stored_members:
+            if not self.guild.get_member(id_):
+                to_remove.append(id_)
 
-		db.multiexec("DELETE FROM exp WHERE UserID = ?",
-					 ((id_,) for id_ in to_remove))
+        db.multiexec("DELETE FROM exp WHERE UserID = ?", (id_,) for id_ in to_remove)
 
-		db.commit()
+	db.commit()
     
     async def on_connect(self):
         print(" bot connected")
