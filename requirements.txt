@@ -5,4 +5,3 @@ discord.py
 discord
 discord.ext.menus
 db-sqlite3
-os.path
