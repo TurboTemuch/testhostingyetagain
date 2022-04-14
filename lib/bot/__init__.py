@@ -46,7 +46,7 @@ class Bot(BotBase):
         self.scheduler = AsyncIOScheduler()
 
         db.autosave(self.scheduler)
-        super().__init__(command_prefix=PREFIX, owner_ids=OWNER_IDS)
+        super().__init__(command_prefix=PREFIX, owner_ids=OWNER_IDS, intents=Intents.all())
 
     def setup(self):
         for cog in COGS:
