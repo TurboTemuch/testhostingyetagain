@@ -25,6 +25,7 @@ def build():
 
 
 def commit():
+    print("Database is committing...")
     cxn.commit()
 
 
