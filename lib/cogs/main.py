@@ -167,12 +167,12 @@ class Main(Cog):
                      ((id_,) for id_ in to_remove))
 
         db.commit()
-        con = sqlite3.connect("database.db")
-        cur = con.cursor()
-        for member in guildneeded.members:
-            if not member.bot:
-                cur.execute("INSERT INTO exp(UserID) VALUES (?) ON CONFLICT DO NOTHING", member.id)
-                await ctx.send("Success.")
+#         con = sqlite3.connect("database.db")
+#         cur = con.cursor()
+#         for member in guildneeded.members:
+#             if not member.bot:
+#                 cur.execute("INSERT INTO exp(UserID) VALUES (?) ON CONFLICT DO NOTHING", member.id)
+#                 await ctx.send("Success.")
         
         await ctx.send("Database updated.")
 	     
