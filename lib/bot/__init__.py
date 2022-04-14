@@ -68,7 +68,7 @@ class Bot(BotBase):
         db.multiexec("DELETE FROM exp WHERE UserID = ?", 
                     ((id_,) for id_ in to_remove))
 
-	db.commit()
+        db.commit()
     
     async def on_connect(self):
         print(" bot connected")
