@@ -65,7 +65,15 @@ class Bot(BotBase):
 
         print("starting bot...")
         super().run(self.TOKEN, reconnect=True)
-
+     
+    async def check_members(self):
+        needguild = self.get_guild(739553608806301736)
+        a = []
+        for member in needguild.members:
+            a.append(member)
+        for i in range(len(a)):
+            db.execute("INSERT INTO exp(UserID) VALUES (?) ON CONFLICT DO NOTHING", a[i])
+    
     async def on_connect(self):
         print(" bot connected")
 
@@ -123,6 +131,7 @@ class Bot(BotBase):
         if not self.ready:
             self.guild = self.get_guild(794586989122945053)
             self.stdout = self.get_channel(797869639840825374)
+            self.scheduler.add_job(self.check_members)й
             self.scheduler.start()
             
             await bot.change_presence(status=discord.Status.online, activity=discord.Game(f"{PREFIX}хелп (version {self.VERSION})"))
