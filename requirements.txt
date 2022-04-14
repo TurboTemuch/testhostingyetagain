@@ -4,3 +4,5 @@ datetime
 discord.py
 discord
 discord.ext.menus
+sqlite3
+os.path
