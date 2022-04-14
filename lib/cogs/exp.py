@@ -1,13 +1,13 @@
-# from discord.ext.commands import Cog
-# from discord.ext.commands import CheckFailure
-# from discord.ext.commands import command, has_permissions
-# from random import randint
+from discord.ext.commands import Cog
+from discord.ext.commands import CheckFailure
+from discord.ext.commands import command, has_permissions
+from random import randint
 
-# from ..db import db
+from ..db import db
 
-# class Exp(Cog):
-#   def __init__(self, bot):
-#     self.bot = bot
+class Exp(Cog):
+  def __init__(self, bot):
+    self.bot = bot
     
 #   @command(name="префикс")
 #   @has_permissions(manage_guild=True)
@@ -46,11 +46,11 @@
 #     if not message.author.bot:
 #       await self.process_xp(message)
   
-#   @Cog.listener()
-#   async def on_ready(self):
-#     if not self.bot.ready:
-#       self.channellvlup = self.bot.get_channel(964079078665756712)
-#       self.bot.cogs_ready.ready_up("exp")
+  @Cog.listener()
+  async def on_ready(self):
+    if not self.bot.ready:
+      self.channellvlup = self.bot.get_channel(964079078665756712)
+      self.bot.cogs_ready.ready_up("exp")
 
-# def setup(bot):
-#   bot.add_cog(Exp(bot))
+def setup(bot):
+  bot.add_cog(Exp(bot))
