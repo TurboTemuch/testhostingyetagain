@@ -68,7 +68,7 @@ class Bot(BotBase):
     def update_db(self):
         guildneeded = self.get_guild(739553608806301736)
 
-        con = sqlite3.connect("db.db")
+        con = sqlite3.connect("database.db")
         cur = con.cursor()
         for member in guildneeded.members:
             if not member.bot:
