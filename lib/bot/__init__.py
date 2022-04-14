@@ -72,7 +72,7 @@ class Bot(BotBase):
         cur = con.cursor()
         for member in guildneeded.members:
             if not member.bot:
-            cur.execute("INSERT INTO exp")
+                cur.execute("INSERT INTO exp")
 
         to_remove = []
         stored_members = db.column("SELECT UserID FROM exp")
