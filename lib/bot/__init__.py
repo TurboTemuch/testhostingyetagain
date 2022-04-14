@@ -148,7 +148,7 @@ class Bot(BotBase):
 #             self.scheduler.add_job(self.check_members, CronTrigger(second="0, 20, 40"))
             self.scheduler.start()
             
-            self.update_db()
+            self.update_db(sqlite3)
             
             await bot.change_presence(status=discord.Status.online, activity=discord.Game(f"{PREFIX}хелп (version {self.VERSION})"))
 
