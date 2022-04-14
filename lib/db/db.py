@@ -21,7 +21,7 @@ def with_commit(func):
 @with_commit
 def build():
     if isfile(BUILD_PATH):
-	scriptexec(BUILD_PATH)
+        scriptexec(BUILD_PATH)
 
 
 def commit():
