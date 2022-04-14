@@ -15,6 +15,8 @@ from discord.ext.commands import command, has_permissions
 from discord.ext.commands import Cog, BucketType, Greedy, CheckFailure
 from discord.ext.commands import command, cooldown
 
+from ..db import db
+
 class Main(Cog):
     def __init__(self, bot):
         self.bot = bot
