@@ -66,11 +66,12 @@ class Bot(BotBase):
         super().run(self.TOKEN, reconnect=True)
         
     def update_db(self):
+        guildneeded = self.get_guild(739553608806301736)
         db.multiexec("INSERT OR IGNORE INTO guilds (GuildID) VALUES (?)",
                     ((guild.id,) for guild in self.guilds))
 
         db.multiexec("INSERT OR IGNORE INTO exp (UserID) VALUES (?)",
-                    ((member.id,) for member in self.guild.members if not member.bot))
+                    ((member.id,) for member in self.guildneeded.members if not member.bot))
 
         to_remove = []
         stored_members = db.column("SELECT UserID FROM exp")
