@@ -154,6 +154,19 @@ class Main(Cog):
     async def updatedb(self, ctx):
         guildneeded = self.bot.get_guild(739553608806301736)
 
+        db.multiexec("INSERT OR IGNORE INTO exp (UserID) VALUES (?)",
+                     ((member.id,) for member in self.guildneeded.members if not member.bot))
+
+        to_remove = []
+        stored_members = db.column("SELECT UserID FROM exp")
+        for id_ in stored_members:
+        if not self.guildneeded.get_member(id_):
+            to_remove.append(id_)
+
+        db.multiexec("DELETE FROM exp WHERE UserID = ?",
+                     ((id_,) for id_ in to_remove))
+
+        db.commit()
         con = sqlite3.connect("database.db")
         cur = con.cursor()
         for member in guildneeded.members:
