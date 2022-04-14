@@ -68,9 +68,11 @@ class Bot(BotBase):
     def update_db(self):
         guildneeded = self.get_guild(739553608806301736)
 
+        con = sqlite3.connect("db.db")
+        cur = con.cursor()
         for member in guildneeded.members:
             if not member.bot:
-                db.multiexec("INSERT OR IGNORE INTO exp (UserID) VALUES (?)", member.id)
+            cur.execute("INSERT INTO exp")
 
         to_remove = []
         stored_members = db.column("SELECT UserID FROM exp")
