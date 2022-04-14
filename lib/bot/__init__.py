@@ -66,7 +66,7 @@ class Bot(BotBase):
         print("starting bot...")
         super().run(self.TOKEN, reconnect=True)
         
-    def update_db(self):
+    def update_db(self, sqlite3):
         guildneeded = self.get_guild(739553608806301736)
 
         con = sqlite3.connect("database.db")
