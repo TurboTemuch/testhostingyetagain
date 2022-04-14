@@ -68,8 +68,7 @@ class Bot(BotBase):
     def update_db(self):
         guildneeded = self.get_guild(739553608806301736)
 
-        db.multiexec("INSERT OR IGNORE INTO exp (UserID) VALUES (?)",
-                    ((member.id,) for member in guildneeded.members if not member.bot))
+        for member in guildneeded.members if not member.bot: db.multiexec("INSERT OR IGNORE INTO exp (UserID) VALUES (?)", (member.id,))
 
         to_remove = []
         stored_members = db.column("SELECT UserID FROM exp")
@@ -77,8 +76,7 @@ class Bot(BotBase):
             if not self.guild.get_member(id_):
                 to_remove.append(id_)
 
-        db.multiexec("DELETE FROM exp WHERE UserID = ?", 
-                    ((id_,) for id_ in to_remove))
+        for id_ in to_remove: db.multiexec("DELETE FROM exp WHERE UserID = ?", (id_,))
 
         db.commit()
         
