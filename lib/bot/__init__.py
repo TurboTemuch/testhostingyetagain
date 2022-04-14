@@ -52,24 +52,23 @@ class Bot(BotBase):
             self.load_extension(f"lib.cogs.{cog}")
             print(f"{cog} cog loaded")
 
-    def run(self, version):
-        self.VERSION = version
+	def update_db(self):
+		db.multiexec("INSERT OR IGNORE INTO guilds (GuildID) VALUES (?)",
+					 ((guild.id,) for guild in self.guilds))
 
-        print("starting setup...")
+		db.multiexec("INSERT OR IGNORE INTO exp (UserID) VALUES (?)",
+					 ((member.id,) for member in self.guild.members if not member.bot))
 
-        print("setup complete")
-        self.setup()
+		to_remove = []
+		stored_members = db.column("SELECT UserID FROM exp")
+		for id_ in stored_members:
+			if not self.guild.get_member(id_):
+				to_remove.append(id_)
 
-        with open("./lib/bot/token.0", "r", encoding="utf-8") as tf:
-            self.TOKEN = tf.read()
+		db.multiexec("DELETE FROM exp WHERE UserID = ?",
+					 ((id_,) for id_ in to_remove))
 
-        print("starting bot...")
-        super().run(self.TOKEN, reconnect=True)
-     
-    async def check_members(self):
-        needguild = self.get_guild(739553608806301736)
-        for member in needguild.members:
-            db.execute("INSERT INTO exp(UserID) VALUES (?) ON CONFLICT DO NOTHING", member.id)
+		db.commit()
     
     async def on_connect(self):
         print(" bot connected")
@@ -130,6 +129,8 @@ class Bot(BotBase):
             self.stdout = self.get_channel(797869639840825374)
             self.scheduler.add_job(self.check_members, CronTrigger(second="0, 20, 40"))
             self.scheduler.start()
+            
+            self.update_db()
             
             await bot.change_presence(status=discord.Status.online, activity=discord.Game(f"{PREFIX}хелп (version {self.VERSION})"))
 
