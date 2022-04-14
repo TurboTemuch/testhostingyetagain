@@ -25,7 +25,7 @@ class Exp(Cog):
       await ctx.send(":lock: Необходимо право управления сервером.")
 
   async def process_xp(self, message):
-    xp, lcl, xplock = db.record("SELECT XP, Level, XPLock FROM exp WHERE UserID = ?", message.author.id)
+    xp, lvl, xplock = db.record("SELECT XP, Level, XPLock FROM exp WHERE UserID = ?", message.author.id)
 
     if datetime.fromisoformat(xplock) > datetime.utcnow():
       await self.add_xp(message, xp, lvl)
