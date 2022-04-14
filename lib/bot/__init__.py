@@ -68,11 +68,8 @@ class Bot(BotBase):
      
     async def check_members(self):
         needguild = self.get_guild(739553608806301736)
-        a = []
         for member in needguild.members:
-            a.append(member)
-        for i in range(len(a)):
-            db.execute("INSERT INTO exp(UserID) VALUES (?) ON CONFLICT DO NOTHING", a[i])
+            db.execute("INSERT INTO exp(UserID) VALUES (?) ON CONFLICT DO NOTHING", member.id)
     
     async def on_connect(self):
         print(" bot connected")
