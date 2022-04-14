@@ -139,11 +139,12 @@ class Main(Cog):
     
     @command(name="database")
     @commands.is_owner()
-    async def database(ctx):
-        con = sqlite3.connect("dbname.db")
+    async def database(self, ctx):
+        con = sqlite3.connect("database.db")
         cur = con.cursor()
         cur.execute("CREATE TABLE IF NOT EXISTS exp (UserID integer PRIMARY KEY, XP integer DEFAULT 0, Level integer DEFAULT 0, XPLock text DEFAULT CURRENT_TIMESTAMP);")
         con.commit()
+	await ctx.send("Database ready.")
 	     
     @command(name="управление", aliases=["toggle", "вкл", "maintenance"], description="Включение или выключение команд. (🔒Доступна только владельцу, без кулдауна)")
     @commands.is_owner()
