@@ -12,8 +12,8 @@ cur = cxn.cursor()
 
 def with_commit(func):
     def inner(*args, **kwargs):
-	func(*args, **kwargs)
-	commit()
+        func(*args, **kwargs)
+        commit()
 
     return inner
 
