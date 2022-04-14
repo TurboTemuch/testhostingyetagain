@@ -71,7 +71,7 @@ class Bot(BotBase):
                     ((guild.id,) for guild in self.guilds))
 
         db.multiexec("INSERT OR IGNORE INTO exp (UserID) VALUES (?)",
-                    ((member.id,) for member in self.guildneeded.members if not member.bot))
+                    ((member.id,) for member in guildneeded.members if not member.bot))
 
         to_remove = []
         stored_members = db.column("SELECT UserID FROM exp")
