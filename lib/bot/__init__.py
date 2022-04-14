@@ -83,6 +83,8 @@ class Bot(BotBase):
                     ((id_,) for id_ in to_remove))
 
         db.commit()
+        
+        print("db updated")
     
     async def on_connect(self):
         print(" bot connected")
