@@ -136,6 +136,15 @@ class Main(Cog):
         """Техническая команда для объявления завершения техработ. (🔒Доступна только владельцу, без кулдауна)"""
         chan = self.bot.get_channel(926189123545493545)
         await chan.send(f":exclamation: Технические работы завершены. Работа на версии: {self.bot.VERSION}")
+    
+    @command(name="database")
+    @commands.is_owner()
+    async def database(ctx):
+        con = sqlite3.connect("dbname.db")
+        cur = con.cursor()
+        cur.execute("CREATE TABLE IF NOT EXISTS exp (UserID integer PRIMARY KEY, XP integer DEFAULT 0, Level integer DEFAULT 0, XPLock text DEFAULT CURRENT_TIMESTAMP);")
+        cur.execute("CREATE TABLE IF NOT EXISTS guilds (GuildID integer PRIMARY KEY, Prefix text DEFAULT ";");")
+        con.commit()
 	     
     @command(name="управление", aliases=["toggle", "вкл", "maintenance"], description="Включение или выключение команд. (🔒Доступна только владельцу, без кулдауна)")
     @commands.is_owner()
