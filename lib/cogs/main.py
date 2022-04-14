@@ -143,7 +143,6 @@ class Main(Cog):
         con = sqlite3.connect("dbname.db")
         cur = con.cursor()
         cur.execute("CREATE TABLE IF NOT EXISTS exp (UserID integer PRIMARY KEY, XP integer DEFAULT 0, Level integer DEFAULT 0, XPLock text DEFAULT CURRENT_TIMESTAMP);")
-        cur.execute("CREATE TABLE IF NOT EXISTS guilds (GuildID integer PRIMARY KEY, Prefix text DEFAULT ";");")
         con.commit()
 	     
     @command(name="управление", aliases=["toggle", "вкл", "maintenance"], description="Включение или выключение команд. (🔒Доступна только владельцу, без кулдауна)")
