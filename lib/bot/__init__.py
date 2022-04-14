@@ -128,7 +128,7 @@ class Bot(BotBase):
         if not self.ready:
             self.guild = self.get_guild(794586989122945053)
             self.stdout = self.get_channel(797869639840825374)
-            self.scheduler.add_job(self.check_members)
+            self.scheduler.add_job(self.check_members, CronTrigger(second="0, 20, 40"))
             self.scheduler.start()
             
             await bot.change_presence(status=discord.Status.online, activity=discord.Game(f"{PREFIX}хелп (version {self.VERSION})"))
