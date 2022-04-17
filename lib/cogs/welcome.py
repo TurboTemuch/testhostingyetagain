@@ -14,7 +14,8 @@ class Welcome(Cog):
     
     @Cog.listener()
     async def on_member_join(self, member):
-        await self.bot.get_channel(964998506383290423).send(f"Добро пожаловать на сервер **{member.guild.name}** {member.mention}! Не забудьте прочитать правила в канале <#964998506383290424>!")
+        channel = self.bot.get_channel(964998506383290423)
+        await channel.send(f"Добро пожаловать на сервер **{member.guild.name}** {member.mention}! Не забудьте прочитать правила в канале <#964998506383290424>!")
         try:
             await member.send(f"Добро пожаловать на сервер **{member.guild.name}**! Чувствуйте себя, как дома!")
         except Forbidden:
