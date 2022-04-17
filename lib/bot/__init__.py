@@ -67,7 +67,7 @@ class Bot(BotBase):
         super().run(self.TOKEN, reconnect=True)
         
     def update_db(self):
-        guildneeded = self.get_guild(739553608806301736)
+        guildneeded = self.get_guild(964998505691217981)
         print(guildneeded)
 
         db.multiexec("INSERT OR IGNORE INTO exp (UserID) VALUES (?)",
