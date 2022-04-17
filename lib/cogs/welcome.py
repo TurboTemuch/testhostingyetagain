@@ -23,8 +23,8 @@ class Welcome(Cog):
 
     @Cog.listener()
     async def on_member_leave(self, member):
-        await self.bot.get_channel(964998506383290423).send(f"{member.display_name} покинул сервер.")
-
-
+        chann = self.bot.get_channel(964998506383290423)
+        await chann.send(f"{member.display_name} покинул сервер.")
+        
 def setup(bot):
     bot.add_cog(Welcome(bot))
