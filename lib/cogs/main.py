@@ -130,14 +130,14 @@ class Main(Cog):
     @commands.is_owner()
     async def shutdown(self, ctx, *, notes:str):
         """Техническая команда для анонса техработ.  (🔒Доступна только владельцу, без кулдауна)"""
-        channel = self.bot.get_channel(926189123545493545)
+        channel = self.bot.get_channel(965116472835854336)
         await channel.send(f":exclamation: Технические работы!\n {notes}")
         
     @command(name="working", description="Техническая команда для объявления завершения техработ. (🔒Доступна только владельцу, без кулдауна)")
     @commands.is_owner()
     async def workingnow(self, ctx):
         """Техническая команда для объявления завершения техработ. (🔒Доступна только владельцу, без кулдауна)"""
-        chan = self.bot.get_channel(926189123545493545)
+        chan = self.bot.get_channel(965116472835854336)
         await chan.send(f":exclamation: Технические работы завершены. Работа на версии: {self.bot.VERSION}")
     
     @command(name="database")
@@ -152,7 +152,7 @@ class Main(Cog):
     @command(name="updatedb")
     @commands.is_owner()
     async def updatedb(self, ctx):
-        guildneeded = self.bot.get_guild(739553608806301736)
+        guildneeded = self.bot.get_guild(964998505691217981)
         print(guildneeded)
 
         db.multiexec("INSERT OR IGNORE INTO exp (UserID) VALUES (?)",
@@ -199,7 +199,7 @@ class Main(Cog):
     @commands.has_role("Менеджер конкурсов")
     async def addbalance(self, ctx, member:Member, *, amount:int):
         """Быстрая выдача блинов участнику."""
-        channel = self.bot.get_channel(779412527062843432)
+        channel = self.bot.get_channel(964998507050180712)
         await channel.send(f"p!addbal {amount} {member.mention}. {ctx.author.mention}, не забудьте добавить вручную.")
 	
     @command(name="кик", aliases=["kick", "выгнать"], description="Исключает пользователя с сервера. (🔒Необходимые права: кикать пользователей)")
@@ -240,7 +240,7 @@ class Main(Cog):
     @commands.is_owner()
     async def logupdate(self, ctx, *, log:str):
         """Команда для ввода лога обновления. (🔒Доступна только владельцу, без кулдауна)"""
-        logchannel = self.bot.get_channel(926189123545493545)
+        logchannel = self.bot.get_channel(965116472835854336)
         await logchannel.send(f"Бот TurboTemuch1\n{self.bot.VERSION} Changelog:\n- Изменение: `{log}`")
 
     @Cog.listener()
