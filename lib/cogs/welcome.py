@@ -14,7 +14,7 @@ class Welcome(Cog):
     
     @Cog.listener()
     async def on_member_join(self, member):
-        await self.bot.get_channel(821776825616695316).send(f"Добро пожаловать на сервер **{member.guild.name}** {member.mention}! Не забудьте прочитать правила в канале <#742651335262076938>!")
+        await self.bot.get_channel(964998506383290423).send(f"Добро пожаловать на сервер **{member.guild.name}** {member.mention}! Не забудьте прочитать правила в канале <#964998506383290424>!")
         try:
             await member.send(f"Добро пожаловать на сервер **{member.guild.name}**! Чувствуйте себя, как дома!")
         except Forbidden:
@@ -22,7 +22,7 @@ class Welcome(Cog):
 
     @Cog.listener()
     async def on_member_leave(self, member):
-        await self.bot.get_channel(821776825616695316).send(f"{member.display_name} покинул сервер.")
+        await self.bot.get_channel(964998506383290423).send(f"{member.display_name} покинул сервер.")
 
 
 def setup(bot):
